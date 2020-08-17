@@ -1,5 +1,10 @@
 <h1><%= @place.name %></h1>
 <p><%= @place.description %></p>
 
-<%= link_to "Home", places_path %>
+<%= link_to "Home", places_path %> | <%= link_to "Request citizenship",
+ place_citizenships_path(@place),
+  method: :post,
+  data: { confirm: "Request citizenship?"
+   } %>
+
 
