@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  root to: 'places#index'
   resources :places do
     resources :citizenships, only: [:new, :create, :destroy]
   end
