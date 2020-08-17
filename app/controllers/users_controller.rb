@@ -11,9 +11,14 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    user = User.find(params[:id])
+    User.destroy(user)
+    redirect_to places_path
   end
+
   def show
   end
+
   private
 
   def strong_user
