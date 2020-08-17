@@ -1,0 +1,7 @@
+<%= simple_form_for :person, url: user_path(@user.id), method: :patch do |f| %>
+  <%= f.input :name %><br />
+  <%= f.input :compagny %><br />
+  <%= f.input :money %>
+  <%= f.input :bio %><br />
+  <%= f.submit %>
+<% end %>
