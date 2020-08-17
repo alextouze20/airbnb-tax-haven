@@ -1,0 +1,10 @@
+<div class="container" >
+<h1>Voici quelques Paradis Fiscaux</h1>
+<div class="cards">
+  <% @places.each do |place| %>
+  <div class="card">
+     <div class="link"><%= link_to place.name, place_path(place.id) %></div>
+  </div>
+  <% end %>
+</div>
+</div>
