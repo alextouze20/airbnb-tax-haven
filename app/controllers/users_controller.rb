@@ -22,6 +22,6 @@ class UsersController < ApplicationController
   private
 
   def strong_user
-    params.require(:person).permit(:name, :compagny, :money, :bio)
+    params.require(:person).permit(:compagny, :money, :bio)
   end
 end
