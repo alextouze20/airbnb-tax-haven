@@ -2,7 +2,11 @@ require "faker"
 
 puts "Cleaning database..."
 Place.destroy_all
+User.destroy_all
 
+# We need to create
+
+user = User.new( name: "fred" )
 
 puts 'Creating 10 random places...'
 10.times do
@@ -18,6 +22,7 @@ puts 'Creating 10 random places...'
     description: Faker::ChuckNorris.fact,
     min_income: num
   )
+  place.user = user
   place.save!
 end
 puts 'Finished!'
