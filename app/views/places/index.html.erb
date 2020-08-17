@@ -1,10 +1,24 @@
+<%= form_tag places_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "What's your income, peasant?"
+  %>
+<%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
 <div class="container" >
+
 <h1>Voici quelques Paradis Fiscaux</h1>
 <div class="cards">
+  <%  if @places.class == String %>
+    <h2><%=  @places %></h2>
+  <%  else %>
   <% @places.each do |place| %>
   <div class="card">
      <div class="link"><%= link_to place.name, place_path(place.id) %></div>
   </div>
   <% end %>
+  <% end %>
 </div>
 </div>
+
