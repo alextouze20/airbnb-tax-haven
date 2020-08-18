@@ -1,11 +1,11 @@
 require "faker"
 
 puts "Cleaning database..."
+Citizenship.destroy_all
 Place.destroy_all
 User.destroy_all
 
 place_num = 0
-# We need to create
 
 user = User.new( name: "fred" )
 
@@ -25,12 +25,8 @@ puts 'Creating 10 random places...'
     description: Faker::ChuckNorris.fact,
     min_income: num
   )
-# "../app/assets/images/place1.jpg"
   file = "../airbnb-tax-haven/app/assets/images/place#{place_num}.jpg"
-  # file = "../airbnb-tax-haven/place1.jpg"
 
-  #puts image_tag("place1")
-  #file = image_tag("place#{place_num}.jpg")
   place.thumbnail.attach(io: File.open(file), filename: 'nes.png', content_type: 'image/jpg')
 
   place.user = user
