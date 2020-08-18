@@ -9,7 +9,7 @@
   <% @user.citizenships.each do |citizenship| %>
     <li><%= citizenship.user.name %> - <%= citizenship.place.name %>
       <% if  %>
-        <%= link_to "Delete", places_citizenship_path, method: :delete,  %>
+        <%= link_to "Delete", place_citizenship_path(citizenship.place,citizenship), :method => :delete %>
        <% end %>
     </li>
   <% end %>
