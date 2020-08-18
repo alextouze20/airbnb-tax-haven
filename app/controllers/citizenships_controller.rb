@@ -1,5 +1,7 @@
 class CitizenshipsController < ApplicationController
   def new
+    citizenship = ""
+    authorize citizenship
   end
 
   def create
@@ -9,11 +11,13 @@ class CitizenshipsController < ApplicationController
     @citizenship.place = @place
     @citizenship.user = @user
     @citizenship.save
+    authorize @citizenship
     redirect_to place_citizenship_path(@place, @citizenship)
   end
 
   def show
     @citizenship = Citizenship.find(params[:id])
+    authorize @citizenship
   end
 
   def destroy
