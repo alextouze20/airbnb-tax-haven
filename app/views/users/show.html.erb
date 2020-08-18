@@ -1,0 +1,6 @@
+<ul>
+  <% @user.citizenships.each do |citizenship| %>
+    <li><%= citizenship.user.name %> - <%= citizenship.place.name %>
+    </li>
+  <% end %>
+</ul>
