@@ -10,6 +10,15 @@
   font-weight: bold;
   color: #52575d;
   background-color: #fddb3a;
+  z-index: 2000;
+}
+.description{
+  opacity: 0;
+  transition-duration: 0.3s;
+  text-align: left;
+  padding: 15px;
+  text-decoration: none;
+  color: white;
 }
 .card{
   height: 400px;
@@ -19,11 +28,19 @@
   background-position: center;
   margin: 15px;
   transition-duration: 0.3s;
-  &:hover {
-    opacity: 0.5;
+  &:hover{
+    filter: brightness(90%);
     height: 500px;
     width: 500px;
     transition-duration: 0.3s;
+    h3{
+      color: white;
+    }
+    .description{
+      opacity: 1;
+      text-decoration: none;
+      transition-duration: 0.3s;
+    }
   }
 }
 .btn{
