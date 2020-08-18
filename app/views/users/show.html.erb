@@ -1,3 +1,10 @@
+<h1>Places created by user</h1>                    
+<% if @user == current_user %>
+  <% @user.places.each do |place| %>
+    <%= place.name %>
+  <% end %>
+<% end %>
+<h2>Citizenships of user</h2>     
 <ul>
   <% @user.citizenships.each do |citizenship| %>
     <li><%= citizenship.user.name %> - <%= citizenship.place.name %>
