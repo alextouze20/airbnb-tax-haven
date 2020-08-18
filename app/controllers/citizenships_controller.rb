@@ -9,7 +9,11 @@ class CitizenshipsController < ApplicationController
     @citizenship.place = @place
     @citizenship.user = @user
     @citizenship.save
-    redirect_to user_path(@user)
+    redirect_to place_citizenship_path(@place, @citizenship)
+  end
+
+  def show
+    @citizenship = Citizenship.find(params[:id])
   end
 
   def destroy
