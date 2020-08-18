@@ -25,6 +25,7 @@ class PlacesController < ApplicationController
   end
 
   private
+
   def strong_place
     params.require(:place).permit(:name,
                                   :tax,
@@ -34,6 +35,8 @@ class PlacesController < ApplicationController
                                   :position,
                                   :continent,
                                   :min_income,
-                                  :description)
+                                  :description,
+                                  :thumbnail,
+                                  photos: [])
   end
 end

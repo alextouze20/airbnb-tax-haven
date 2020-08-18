@@ -1,6 +1,11 @@
 <h1><%= @place.name %></h1>
 <p><%= @place.description %></p>
 
+<% if @place.photos.attached? %>
+<% @place.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+<% end %>
 <%= link_to "Home", places_path %> | <%= link_to "Request citizenship",
  place_citizenships_path(@place),
   method: :post,

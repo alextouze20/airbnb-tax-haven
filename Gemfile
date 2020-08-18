@@ -63,3 +63,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # add faker - alex
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
+# added cloudinary - octave
+gem 'cloudinary', '~> 1.12.0'
