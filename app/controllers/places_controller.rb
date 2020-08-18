@@ -1,25 +1,53 @@
 class PlacesController < ApplicationController
   def index
+     @places = policy_scope(Place).order(created_at: :desc)
     if params[:query].present?
-      @places = Place.where(min_income: (0..params[:query].to_i))
-      # or you can also use:
-      # @places = Place.where("min_income <= ?", params[:query])
+      @places = @places.select { |place| place.min_income <= params[:query].to_i }
       @places = "Fuck off peasant" if @places.empty?
-    else
-      @places = Place.all
     end
   end
 
   def show
     @place = Place.find(params[:id])
+    authorize @place
   end
+
   def new
     @place = Place.new()
+    authorize @place
   end
 
   def create
-    place = Place.new(strong_place)
-    place.user = current_user
+    @place = Place.new(strong_place)
+    authorize @place
+    @place.user = current_user
+    @place.save
+    redirect_to places_path
+  end
+
+  def destroy
+    place = Place.find(params[:id])
+    authorize @place
+    Place.destroy(place)
+  end
+
+  def edit
+    @place = Place.find(params[:id])
+    authorize @place
+  end
+
+  def update
+    place = Place.find(params[:id])
+    authorize place
+    place.name = strong_place[:name]
+    place.tax = strong_place[:tax]
+    place.control = strong_place[:control]
+    place.reputation = strong_place[:reputation]
+    place.regime = strong_place[:regime]
+    place.position = strong_place[:position]
+    place.continent = strong_place[:continent]
+    place.min_income = strong_place[:min_income]
+    place.description = strong_place[:description]
     place.save
     redirect_to places_path
   end
@@ -40,3 +68,4 @@ class PlacesController < ApplicationController
                                   photos: [])
   end
 end
+
