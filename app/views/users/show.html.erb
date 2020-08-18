@@ -1,0 +1,5 @@
+<% if @user == current_user %>
+  <% @user.places.each do |place| %>
+    <%= place.name %>
+  <% end %>
+<% end %>
