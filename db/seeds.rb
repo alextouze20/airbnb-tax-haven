@@ -1,8 +1,10 @@
 require "faker"
 
 puts "Cleaning database..."
+Citizenship.destroy_all
 Place.destroy_all
 User.destroy_all
+
 
 # We need to create
 
