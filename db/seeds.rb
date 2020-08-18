@@ -7,8 +7,8 @@ User.destroy_all
 
 place_num = 0
 
-user = User.new( name: "fred" )
-
+user = User.new( name: "fred",email: "fred@gmail.com", password: "plouplou93" )
+user.save
 puts 'Creating 10 random places...'
 10.times do
   place_num += 1

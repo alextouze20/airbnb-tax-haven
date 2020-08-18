@@ -1,0 +1,36 @@
+
+.cards{
+  width: 100%
+}
+.research-form a{
+  text-decoration: none;
+  padding: 9px 16px;
+  margin-left: 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #52575d;
+  background-color: #fddb3a;
+}
+.card{
+  height: 400px;
+  width: 400px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  margin: 15px;
+  transition-duration: 0.3s;
+  &:hover {
+    opacity: 0.5;
+    height: 500px;
+    width: 500px;
+    transition-duration: 0.3s;
+  }
+}
+.btn{
+  background-color: #fddb3a;
+  color: #52575d;
+}
+.card h3{
+  text-decoration: none;
+  color: #52575d;
+}
