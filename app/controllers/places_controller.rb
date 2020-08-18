@@ -63,7 +63,9 @@ class PlacesController < ApplicationController
                                   :position,
                                   :continent,
                                   :min_income,
-                                  :description)
+                                  :description,
+                                  :thumbnail,
+                                  photos: [])
   end
 end
 
