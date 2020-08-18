@@ -1,6 +1,7 @@
 <h1><%= @place.name %></h1>
 <p><%= @place.description %></p>
 
+<%= cl_image_tag @place.thumbnail.key, height: 300, width: 400, crop: :fill if @place.thumbnail.attached? %>
 <% if @place.photos.attached? %>
 <% @place.photos.each do |photo| %>
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
