@@ -16,6 +16,7 @@
   <% @places.each do |place| %>
   <div class="card">
      <div class="link"><%= link_to place.name, place_path(place.id) %></div>
+     <%= cl_image_tag place.thumbnail.key, height: 300, width: 400, crop: :fill if place.thumbnail.attached? %>
   </div>
   <% end %>
   <% end %>

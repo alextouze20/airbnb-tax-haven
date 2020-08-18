@@ -5,13 +5,14 @@ Citizenship.destroy_all
 Place.destroy_all
 User.destroy_all
 
-
-# We need to create
+place_num = 0
 
 user = User.new( name: "fred" )
 
 puts 'Creating 10 random places...'
 10.times do
+  place_num += 1
+
   var = rand(1..2)
   if var == 1
   num = rand(1..50000000)
@@ -24,6 +25,10 @@ puts 'Creating 10 random places...'
     description: Faker::ChuckNorris.fact,
     min_income: num
   )
+  file = "../airbnb-tax-haven/app/assets/images/place#{place_num}.jpg"
+
+  place.thumbnail.attach(io: File.open(file), filename: 'nes.png', content_type: 'image/jpg')
+
   place.user = user
   place.save!
 end

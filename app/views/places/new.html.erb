@@ -8,5 +8,8 @@
   <%= f.input :continent %>
   <%= f.input :min_income %>
   <%= f.input :description %>
+  <%= f.input :thumbnail, as: :file %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <p>Select multiple photos using ctrl+click</p>
   <%= f.submit  %>
 <% end %>
