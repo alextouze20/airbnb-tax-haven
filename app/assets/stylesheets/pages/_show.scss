@@ -1,0 +1,135 @@
+// Import page-specific CSS files here.
+@import "home";
+
+.show-header
+ {
+  margin-top: 70px;
+ }
+
+.container-user-show {
+
+ width: 800px;
+ align-items: flex-start;
+ flex-direction: column;
+ display: flex;
+
+}
+
+.container-big {
+  margin-left: 20%;
+  margin-right: 20%;
+
+
+}
+
+.square-photos {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+
+}
+
+.square-photos > img {
+ // margin: 8px 8px;
+}
+
+.images-flexbox {
+  display: flex;
+  align-items: center;
+  grid-gap: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 0px;
+  margin-bottom: 0px;
+
+}
+
+.thumbnail-show-place {
+
+}
+
+.header-h2 {
+margin-top: 40px;
+margin-bottom: 0px;
+
+}
+
+.info-just-under-name {
+  width: 1015px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.info-just-under-name > p {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.person-who-made-the-place {
+  margin-top: 20px;
+  height: 80px;
+  width: 700px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-between;
+  img {
+    border-radius: 50%;
+  }
+  h2 {
+    margin-bottom: 35px;
+  }
+}
+
+.description-place {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 1015px;
+  text-align: left;
+  border-bottom: gray 1px solid;
+}
+
+.info-general {
+  position: relative;
+  padding-bottom: 80px;
+  border-bottom: gray 1px solid;
+  p {
+    text-align: left;
+  }
+}
+
+.request-citizenship-box {
+
+  position: absolute;
+  right: -318px; top: 15px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+
+  border: 1px solid #DDDDDD;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12);
+  .min-income-header {
+    font-size: 18px;
+  }
+   .min-income-itself {
+    font-size: 28px;
+  }
+
+}
+
+
+.request-citizenship-button {
+  border-radius: 12px;
+  font-size: 22px;
+  background-color: #FDDB3A;
+  color: black;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
