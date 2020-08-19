@@ -1,6 +1,6 @@
 
 .cards{
-  width: 100%
+  width: 100%;
 }
 .research-form a{
   text-decoration: none;
@@ -62,17 +62,22 @@
 }
 
 .card.d-flex > h3 {
-    padding: 5%;
-    color: white;
     text-decoration: none;
 }
 
 .card.d-flex:hover {
-    background-color: black !important;
     border: none;
 }
 
 .card.d-flex {
     border: none;
     box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+.card-text.text-center {
+    padding: 5%;
+}
+
+.card-text.text-center > h3 {
+    color: white;
 }
