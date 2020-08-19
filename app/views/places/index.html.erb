@@ -64,17 +64,20 @@
       <% @places.each do |place| %>
         <%= link_to place_path(place) do %>
           <div class="card d-flex" style = "background-image: linear-gradient(to bottom, rgba(246, 244,230, 0.2), rgba(253, 219, 58, 0.2)),url(<%= cl_image_path place.thumbnail.key, height: 300, width: 400, crop: :fill if place.thumbnail.attached? %>)">
-              <h3><%= place.name %></h3>
-              <div class="description">
-                <%= place.description %>
-                <p>Tax level: 💸💸💸💸💸</p>
-                <p>Reputation: 👍👍👍👍👍</p>
-                <p>Control: 😭😭😭😭😭</p>
-                <p>Regime 👑</p>
-                <h4>Owned by:</h4>
-                <%= place.user.name %> <br>
-                <%= place.user.bio %> <br>
-                <%= place.user.email %>
+              <div class="card-text">
+                <h3><%= place.name %></h3>
+                <div class="description">
+                  <%= place.description.first(100) + " ..." %>
+                  <p>Tax level: 💸💸💸💸💸</p>
+                  <p>Reputation: 👍👍👍👍👍</p>
+                  <p>Control: 😭😭😭😭😭</p>
+                  <p>Regime 👑</p>
+                  <h4>Owned by:</h4>
+                  <%= place.user.name %> <br>
+                  <%= place.user.bio %> <br>
+                  <%= place.user.email %>
+                </div>
+
               </div>
           </div>
         <% end %>
