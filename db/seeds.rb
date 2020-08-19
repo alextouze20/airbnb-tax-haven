@@ -7,9 +7,6 @@ User.destroy_all
 
 puts "Create one user"
 
-user = User.new( name: "Admin" )
-
-puts "Create places"
 
 bahamas = Place.new(
     name: "Bahamas",

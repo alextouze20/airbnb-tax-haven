@@ -1,0 +1,28 @@
+.carousel{
+  height: 206px;
+
+}
+#avatar-carousel{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%
+}
+.carousel-img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.carousel-btn{
+  color: #FDDB3A;
+}
+.searchbtn{
+  font-weight: bold;
+  & :hover{
+
+  }
+}
+.carousel-indicator{
+  background-color: #FDDB3A;
+  border-radius: 10px
+}

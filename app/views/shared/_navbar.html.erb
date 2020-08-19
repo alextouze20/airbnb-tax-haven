@@ -12,7 +12,11 @@
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
           <%= link_to current_user.name, user_path(current_user.id) %>
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if !current_user.photo.attached?  %>
+            <%= image_tag "https://tse4.mm.bing.net/th?id=OIP.TneqgKQBUNi__W7XKshWlAHaHa&pid=Api", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= cl_image_tag  current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My Profile", user_path(current_user.id) , class: "dropdown-item" %>
             <%= link_to "Complete my profile ", edit_user_path(current_user.id), class: "dropdown-item" %>
