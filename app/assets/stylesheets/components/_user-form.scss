@@ -1,3 +1,40 @@
 .blank{
   height: 150px;
 }
+.user-btn{
+  position: absolute;
+    left: -1px;
+}
+.user-btn-new{
+  position: relative;
+  left: 0px;
+
+}
+.user-btn a{
+  background-color: #FDDB3A;
+  border-radius: 10px;
+  text-decoration: none;
+  padding: 10px;
+  margin: 10px;
+  color: #52575d;
+  &:hover{
+    text-decoration: none;
+    color: #41444b;
+  }
+}
+input{
+  background-color: #FDDB3A;
+  border-radius: 10px;
+  text-decoration: none;
+  padding: 10px;
+  margin: 10px;
+  color: #52575d;
+  &:hover{
+    text-decoration: none;
+    color: #41444b;
+  }
+}
+.user-btn-pw{
+  opacity: 0;
+}
+
