@@ -1,4 +1,78 @@
-<p><%= @citizenship.place.name %></p>
-<p><%= @citizenship.user.name %></p>
-<%= link_to "Go to user profile", user_path(current_user.id) %>
-<%= link_to "Go to Index", places_path %>
+
+<div class="row justify-content-center">
+<div class="container-citizenship;" style="margin-top: 10%;">
+<h1>Congrats! You are now an official citizen of <%= @citizenship.place.name %>!</h1>
+<p>Here's your official ID card from this country. You may now transfer all your money abroad and your fortune will be tax free!</p>
+<div class="row justify-content-center">
+  <div class="card-main" style="margin-top: 5%; margin-bottom: 5%;">
+  <span id="title">Republic of <%= @citizenship.place.name %></span>
+  <div class="card-box">
+    <div class="card-left">
+      <% if !current_user.photo.attached?  %>
+            <%= image_tag "https://tse4.mm.bing.net/th?id=OIP.TneqgKQBUNi__W7XKshWlAHaHa&pid=Api", id: "id-pic", width: 150 %>
+          <% else %>
+            <%= cl_image_tag  current_user.photo.key, class: "avatar dropdown-toggle", id: "id-pic", width: 150 %>
+          <% end %>
+    </div>
+    <div class="card-right">
+      <p><strong>Full name:</strong> <%= @citizenship.user.name %></p>
+      <p><strong>Date of birth:</strong> 20/12/1993</p>
+      <p><strong>Status:</strong> Resident</p>
+    </div>
+  </div>
+  <span id="id"><strong>ID:</strong> 78565989789790897866567</span>
+</div>
+</div>
+<p style="text-align: center;"><%= link_to "Your profile", user_path(current_user.id) %> |
+<%= link_to "Home", places_path %></p>
+</div>
+</div>
+
+<style>
+.card-main {
+  color: white;
+  width: 420px;
+  height: 250px;
+  padding: 15px;
+  overflow: hidden;
+  background-image: linear-gradient(to bottom, rgba(0,0,153,0.6), rgba(37, 32, 30, 0.8)), url(http://texturelib.com/Textures/plastic/plastic_0017_01_preview.jpg);
+  border-radius: 5px;
+  border: solid 2px black;
+  font-family: Poppins, sans-serif;
+}
+
+.card-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.card-left {
+  margin-right: 25px;
+}
+
+#ic-pic {
+  opacity: 0.6;
+  filter: grayscale(80%);
+  border: solid 2px black;
+}
+
+.card-right {
+  color: white;
+  opacity: 0.7;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#title {
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+img#id-pic {
+    width: 120px !important;
+    height: auto !important;
+    opacity: 0.6;
+}
+
+</style>
