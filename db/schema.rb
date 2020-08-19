@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_08_18_091850) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_places_on_user_id"
   end
 

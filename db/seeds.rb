@@ -5,8 +5,11 @@ Citizenship.destroy_all
 Place.destroy_all
 User.destroy_all
 
-puts "Create one user"
+puts "Creating 1 user"
 
+user = User.new( { name: "Admin" } )
+
+puts "Creating 20 places"
 
 bahamas = Place.new(
     name: "Bahamas",
