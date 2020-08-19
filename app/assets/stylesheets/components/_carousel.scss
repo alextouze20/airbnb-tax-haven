@@ -1,5 +1,6 @@
 .carousel{
   height: 206px;
+  font-size: 1.2em;
 
 }
 #avatar-carousel{
@@ -24,5 +25,27 @@
 }
 .carousel-indicator{
   background-color: #FDDB3A;
-  border-radius: 10px
+  border-radius: 10px;
+}
+
+a.carousel-control-prev {
+    display: none;
+}
+
+span.carousel-control-next-icon {
+    display: none;
+}
+
+div#carouselExampleIndicators {
+    background-color: #ececec;
+}
+
+ol.carousel-indicators {
+    display: none;
+}
+
+img.d-block.rounded-md.carousel-img {
+    margin-right: 3%;
+    width: auto;
+    height: 100px;
 }

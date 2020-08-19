@@ -7,10 +7,13 @@
   padding: 9px 16px;
   margin-left: 15px;
   border-radius: 10px;
-  font-weight: bold;
-  color: #52575d;
-  background-color: #fddb3a;
+  font-weight: 500;
+  color: #fddb3a;
   z-index: 2000;
+}
+
+.research-form a:hover{
+  opacity: 0.8;
 }
 .description{
   opacity: 0;
@@ -57,7 +60,19 @@
   background-color: #fddb3a;
   color: #52575d;
 }
-.card h3{
-  text-decoration: none;
-  color: #52575d;
+
+.card.d-flex > h3 {
+    padding: 5%;
+    color: white;
+    text-decoration: none;
+}
+
+.card.d-flex:hover {
+    background-color: black !important;
+    border: none;
+}
+
+.card.d-flex {
+    border: none;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
 }
