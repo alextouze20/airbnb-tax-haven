@@ -12,7 +12,7 @@ class PlacePolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user.id
+    record.user == user
   end
 
   def edit?
