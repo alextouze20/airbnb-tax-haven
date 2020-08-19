@@ -23,6 +23,10 @@
 .cards a{
   text-decoration: none;
 }
+.card-text{
+  height: 100%;
+  border-radius: 20px
+}
 .card{
   height: 400px;
   width: 400px;
@@ -32,7 +36,9 @@
   margin: 15px;
   transition-duration: 0.3s;
   &:hover{
-    backdrop-filter:  blur(2px);
+    .card-text{
+      backdrop-filter:  blur(10px) contrast(40%);
+    }
     height: 450px;
     width: 450px;
     transition-duration: 0.3s;
