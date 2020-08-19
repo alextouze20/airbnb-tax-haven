@@ -20,7 +20,9 @@ bahamas = Place.new(
     min_income: [1000000000,1000000].sample
 )
 
-file = "../airbnb-tax-haven/app/assets/images/bahamas.jpg"
+prefix = Rails.env.development? ? "../airbnb-tax-haven/app/assets/images/" : "/boats/"
+
+file = "#{prefix}bahamas.jpg"
 bahamas.thumbnail.attach(io: File.open(file), filename: 'bahamas.jpg', content_type: 'image/jpg')
 bahamas.user = user
 bahamas.save!
@@ -33,7 +35,7 @@ virgin = Place.new(
     min_income: [1000000000,1000000].sample
 )
 
-file = "../airbnb-tax-haven/app/assets/images/british-virgin-islands.jpg"
+file = "#{prefix}british-virgin-islands.jpg"
 virgin.thumbnail.attach(io: File.open(file), filename: 'british-virgin-islands.jpg', content_type: 'image/jpg')
 virgin.user = user
 virgin.save!
@@ -44,7 +46,7 @@ bermuda = Place.new(
     min_income: [1000000000,1000000].sample
 )
 
-file = "../airbnb-tax-haven/app/assets/images/bermuda.jpg"
+file = "#{prefix}bermuda.jpg"
 bermuda.thumbnail.attach(io: File.open(file), filename: 'bermuda.jpg', content_type: 'image/jpg')
 bermuda.user = user
 bermuda.save!
@@ -54,7 +56,7 @@ cayman = Place.new(
     description: "The Cayman Islands (/ˈkeɪmən/ or /keɪˈmæn/) is an autonomous British Overseas Territory in the western Caribbean Sea. The 264-square-kilometre (102-square-mile) territory comprises the three islands of Grand Cayman, Cayman Brac and Little Cayman, which are located to the south of Cuba and northeast of Honduras, between Jamaica and Mexico's Yucatán Peninsula. The capital city is George Town on Grand Cayman, which is the most populous of the three islands.",
     min_income: [1000000000,1000000].sample
 )
-file = "../airbnb-tax-haven/app/assets/images/cayman-islands.jpg"
+file = "#{prefix}cayman-islands.jpg"
 cayman.thumbnail.attach(io: File.open(file), filename: 'cayman-islands.jpg', content_type: 'image/jpg')
 cayman.user = user
 cayman.save!
@@ -66,7 +68,7 @@ cook = Place.new(
     min_income: [1000000000,1000000].sample
 )
 
-file = "../airbnb-tax-haven/app/assets/images/cook-islands.jpg"
+file = "#{prefix}cook-islands.jpg"
 cook.thumbnail.attach(io: File.open(file), filename: 'cook-islands.jpg', content_type: 'image/jpg')
 cook.user = user
 cook.save!
@@ -78,7 +80,7 @@ jersey = Place.new(
     min_income: [1000000000,1000000].sample
 )
 
-file = "../airbnb-tax-haven/app/assets/images/islands-of-jersey.jpg"
+file = "#{prefix}islands-of-jersey.jpg"
 jersey.thumbnail.attach(io: File.open(file), filename: 'islands-of-jersey.jpg', content_type: 'image/jpg')
 jersey.user = user
 jersey.save!
@@ -89,7 +91,7 @@ hk = Place.new(
     min_income: [1000000000,1000000].sample
 )
 
-file = "../airbnb-tax-haven/app/assets/images/hong-kong.jpg"
+file = "#{prefix}hong-kong.jpg"
 hk.thumbnail.attach(io: File.open(file), filename: 'hong-kong.jpg', content_type: 'image/jpg')
 hk.user = user
 hk.save!
@@ -100,7 +102,7 @@ licht = Place.new(
     min_income: [1000000000,1000000].sample
 )
 
-file = "../airbnb-tax-haven/app/assets/images/lichtenstein.jpg"
+file = "#{prefix}lichtenstein.jpg"
 licht.thumbnail.attach(io: File.open(file), filename: 'lichtenstein.jpg', content_type: 'image/jpg')
 licht.user = user
 licht.save!
@@ -110,7 +112,7 @@ monaco = Place.new(
     description: "Monaco (/ˈmɒnəkoʊ/ (About this soundlisten); French pronunciation: ​[mɔnako][dubious – discuss]), officially the Principality of Monaco (French: Principauté de Monaco),[a] is a sovereign city-state, country, and microstate on the French Riviera in Western Europe. It is bordered by France to the north, east and west, and by the Mediterranean Sea to the south. The principality is home to 38,682 residents[10] and is widely recognised for being one of the most expensive and wealthiest places in the world. The official language is French, although Monégasque, English and Italian are spoken and understood by a sizeable group.[b]",
     min_income: [1000000000,1000000].sample
 )
-file = "../airbnb-tax-haven/app/assets/images/monaco.jpg"
+file = "#{prefix}monaco.jpg"
 monaco.thumbnail.attach(io: File.open(file), filename: 'monaco.jpg', content_type: 'image/jpg')
 monaco.user = user
 monaco.save!
@@ -120,7 +122,7 @@ curacao = Place.new(
   description: "Curaçao (/ˈkjʊərəsoʊ, -saʊ, ˌkjʊərəˈsoʊ, -ˈsaʊ/ KEWR-əss-oh, -⁠ow, -⁠OH, -⁠OW,[7] Dutch: [kyraːˈsʌu, kur-] (About this soundlisten);[8] Papiamento: Kòrsou [ˈkɔrsɔu̯]) is a Lesser Antilles island country in the southern Caribbean Sea and the Dutch Caribbean region, about 65 km (40 mi) north of the Venezuelan coast. It is a constituent country (Dutch: land) of the Kingdom of the Netherlands.[9] Together with Aruba and Bonaire it forms the ABC islands. Collectively, Curaçao, Aruba, and other Dutch islands in the Caribbean are often called the Dutch Caribbean. The country was formerly part of the Curaçao and Dependencies colony from 1815–1954 and later the Netherlands Antilles from 1954–2010, as 'Island Territory of Curaçao'[10] (Dutch: Eilandgebied Curaçao, Papiamento: Teritorio Insular di Kòrsou) and is now formally called the Country of Curaçao (Dutch: Land Curaçao,[11] Papiamento: Pais Kòrsou).[12][13] It includes the main island of Curaçao and the much smaller, uninhabited island of Klein Curaçao ('Little Curaçao').[13] Curaçao has a population of 158,665[3] (January 2019 est.) and an area of 444 km2",
   min_income: [1000000000, 1000000].sample
 )
-file = "../airbnb-tax-haven/app/assets/images/curacao.jpg"
+file = "#{prefix}curacao.jpg"
 curacao.thumbnail.attach(io: File.open(file), filename: 'curacao.jpg', content_type: 'image/jpg')
 curacao.user = user
 curacao.save!
@@ -131,7 +133,7 @@ mauritius = Place.new(
   min_income: [1000000000, 1000000].sample
 )
 
-file = "../airbnb-tax-haven/app/assets/images/mauritius.jpg"
+file = "#{prefix}mauritius.jpg"
 mauritius.thumbnail.attach(io: File.open(file), filename: 'mauritius.jpg', content_type: 'image/jpg')
 mauritius.user = user
 mauritius.save!
@@ -142,7 +144,7 @@ nauru = Place.new(
   min_income: [1000000000, 1000000].sample
 )
 
-file = "../airbnb-tax-haven/app/assets/images/nauru.jpg"
+file = "#{prefix}nauru.jpg"
 nauru.thumbnail.attach(io: File.open(file), filename: 'nauru.jpg', content_type: 'image/jpg')
 nauru.user = user
 nauru.save!
@@ -153,7 +155,7 @@ cyprus = Place.new(
   min_income: [1000000000, 1000000].sample
 )
 
-file = "../airbnb-tax-haven/app/assets/images/cyprus.jpg"
+file = "#{prefix}cyprus.jpg"
 cyprus.thumbnail.attach(io: File.open(file), filename: 'cyprus.jpg', content_type: 'image/jpg')
 cyprus.user = user
 cyprus.save!
@@ -164,7 +166,7 @@ seychelles = Place.new(
   min_income: [1000000000, 1000000].sample
 )
 
-file = "../airbnb-tax-haven/app/assets/images/seychelles.jpg"
+file = "#{prefix}seychelles.jpg"
 seychelles.thumbnail.attach(io: File.open(file), filename: 'seychelles.jpg', content_type: 'image/jpg')
 seychelles.user = user
 seychelles.save!
@@ -175,7 +177,7 @@ malta = Place.new(
   min_income: [1000000000, 1000000].sample
 )
 
-file = "../airbnb-tax-haven/app/assets/images/malta.jpg"
+file = "#{prefix}malta.jpg"
 malta.thumbnail.attach(io: File.open(file), filename: 'malta.jpg', content_type: 'image/jpg')
 malta.user = user
 malta.save!
@@ -186,7 +188,7 @@ switzerland = Place.new(
   min_income: [1000000000, 1000000].sample
 )
 
-file = "../airbnb-tax-haven/app/assets/images/switzerland.jpg"
+file = "#{prefix}switzerland.jpg"
 switzerland.thumbnail.attach(io: File.open(file), filename: 'switzerland.jpg', content_type: 'image/jpg')
 switzerland.user = user
 switzerland.save!
@@ -197,7 +199,7 @@ luxembourg = Place.new(
   min_income: [1000000000, 1000000].sample
 )
 
-file = "../airbnb-tax-haven/app/assets/images/luxembourg.jpg"
+file = "#{prefix}luxembourg.jpg"
 luxembourg.thumbnail.attach(io: File.open(file), filename: 'luxembourg.jpg', content_type: 'image/jpg')
 luxembourg.user = user
 luxembourg.save!
@@ -208,7 +210,7 @@ delaware = Place.new(
   min_income: [1000000000, 1000000].sample
 )
 
-file = "../airbnb-tax-haven/app/assets/images/delaware.jpg"
+file = "#{prefix}delaware.jpg"
 delaware.thumbnail.attach(io: File.open(file), filename: 'delaware.jpg', content_type: 'image/jpg')
 delaware.user = user
 delaware.save!
@@ -219,7 +221,7 @@ panama = Place.new(
   min_income: [1000000000, 1000000].sample
 )
 
-file = "../airbnb-tax-haven/app/assets/images/panama.jpg"
+file = "#{prefix}panama.jpg"
 panama.thumbnail.attach(io: File.open(file), filename: 'panama.jpg', content_type: 'image/jpg')
 panama.user = user
 panama.save!
