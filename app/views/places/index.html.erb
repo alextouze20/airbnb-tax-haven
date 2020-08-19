@@ -1,3 +1,26 @@
+<!----- BANNER + SEARCH FORM ---->
+
+<div class="banner">
+  <div class="banner-content">
+    <h1>Find the best countries for tax evasion. </h1>
+    <p>Find the best tax haven countries arround the world, escape your local tax policies and save millions and millions of dollars!</p>
+          <div class="search-form">
+            <%= form_tag places_path, method: :get do %>
+          <div class="row d-flex align-items-left research-form">
+            <%= text_field_tag :query,
+          params[:query],
+          class: "form-control col-4",
+          placeholder: "How much is your fortune?"
+        %>
+          <%= submit_tag "Search", class: "btn btn-primary col-3 searchbtn" %>
+        <%= link_to "Add a new place", new_place_path%>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<!----- CAROUSEL TESTIMONY ---->
 
 <div id="carouselExampleIndicators" class="carousel slide d-flex align-items-center" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -9,26 +32,20 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class = "d-flex justify-content-center align-items-center">
-        <img src="https://tse1.mm.bing.net/th?id=OIP.GP6FQ_3wRz4fBUFktGFC3QHaKy&pid=Api" class="d-block rounded-md carousel-img" alt="...">
-        <h5>I feel like Evasion was made for me</h5>
+        <img src="https://s3-us-west-1.amazonaws.com/gtvcdn/image/channel_logo_636572480135692098.jpg" class="d-block rounded-md carousel-img" alt="...">
+        <p>"Evasion was the best way to escape from US tax policies. I saved a lot of money and I bought a new boat!"<br><strong>Bill G.</strong></p>
       </div>
     </div>
     <div class="carousel-item">
       <div class = "d-flex justify-content-center align-items-center">
-        <img src="https://tse3.mm.bing.net/th?id=OIP.O4Lrw3QH_SZeKwid1-Ha7QHaK3&pid=Api" class="d-block rounded-md carousel-img" alt="...">
-        <h5>The most rewarding web experiment !!</h5>
+        <img src="https://pbs.twimg.com/profile_images/669103856106668033/UF3cgUk4_400x400.jpg" class="d-block rounded-md carousel-img" alt="...">
+        <p>"I moved all my fortune to Panama thanks to Evasion. I saved so much money I don't even count."<br><strong>Jeff B.</strong></p>
       </div>
     </div>
     <div class="carousel-item">
       <div class = "d-flex justify-content-center align-items-center">
-        <img src="https://tse1.mm.bing.net/th?id=OIP.uD_2wrGWgMYonmXDVEFiwQHaE8&pid=Api" class="d-block rounded-md carousel-img" alt="...">
-        <h5>Finally a good comunity</h5>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class = "d-flex justify-content-center align-items-center">
-        <img src="https://tse3.mm.bing.net/th?id=OIP.pCz5Rylmz_jux0CD_3iOGAHaDt&pid=Api" class="d-block rounded-md carousel-img" alt="...">
-        <h5>Évasion c'est trop bien</h5>
+        <img src="data:image/jpeg;base64,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" class="d-block rounded-md carousel-img" alt="...">
+        <p>"Why bother paying taxes? I just moved all my money elsewhere and that was it! Now I'm richer than before."<br><strong>Elon M.</strong></p>
       </div>
     </div>
   </div>
@@ -41,21 +58,11 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-<%= link_to 'User Page', user_path(current_user) %>
-<%= form_tag places_path, method: :get do %>
-  <div class="row d-flex align-items-center justify-content-center research-form">
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control col-4",
-      placeholder: "What's your income, peasant?"
-    %>
-  <%= submit_tag "Search", class: "btn btn-primary col-3 searchbtn" %>
-  <%= link_to "Add a new place", new_place_path%>
-  </div>
-<% end %>
-<div class="container text-center" >
 
-<h1>Typical places to save your money</h1>
+<!----- LIST PLACES ---->
+
+<div class="results">
+<h2>Top tax haven to save your money.</h2>
 <div class="cards row">
   <div class="d-flex justify-content-center align-items-center flex-wrap">
     <%  if @places.class == String %>
@@ -66,23 +73,45 @@
           <div class="card d-flex" style = "background-image: linear-gradient(to bottom, rgba(246, 244,230, 0.2), rgba(253, 219, 58, 0.2)),url(<%= cl_image_path place.thumbnail.key, height: 300, width: 400, crop: :fill if place.thumbnail.attached? %>)">
               <h3><%= place.name %></h3>
               <div class="description">
-                <%= place.description %>
                 <p>Tax level: 💸💸💸💸💸</p>
                 <p>Reputation: 👍👍👍👍👍</p>
                 <p>Control: 😭😭😭😭😭</p>
                 <p>Regime 👑</p>
-                <h4>Owned by:</h4>
-                <%= place.user.name %> <br>
-                <%= place.user.bio %> <br>
-                <%= place.user.email %>
               </div>
           </div>
         <% end %>
       <% end %>
     <% end %>
+    </div>
+    </div>
   </div>
+</div>
 
-</div>
-</div>
+<!----- SOME STYLE UNIQUE TO THIS PAGE --->
+
+
+<style>
+
+.navbar-nav{
+  color: white !important;
+}
+
+.navbar-lewagon h1{
+  color: white !important;
+}
+
+li.nav-item.dropdown > a {
+    color: white !important;
+}
+
+.results {
+    padding-top: 5%;
+}
+
+.results > h2 {
+    text-align: center;
+    margin-bottom: 2%;
+}
+</style>
 
 
