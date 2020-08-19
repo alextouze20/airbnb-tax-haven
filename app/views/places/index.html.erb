@@ -1,8 +1,9 @@
 <div id="carouselExampleIndicators" class="carousel slide d-flex align-items-center" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li class = "carousel-indicator"data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li class = "carousel-indicator"data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li class = "carousel-indicator"data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li class = "carousel-indicator"data-target="#carouselExampleIndicators" data-slide-to="3"></li>
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -23,6 +24,12 @@
         <h5>Finally a good comunity</h5>
       </div>
     </div>
+    <div class="carousel-item">
+      <div class = "d-flex justify-content-center align-items-center">
+        <img src="https://tse3.mm.bing.net/th?id=OIP.pCz5Rylmz_jux0CD_3iOGAHaDt&pid=Api" class="d-block rounded-md carousel-img" alt="...">
+        <h5>Évasion c'est trop bien</h5>
+      </div>
+    </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -40,7 +47,7 @@
       class: "form-control col-4",
       placeholder: "What's your income, peasant?"
     %>
-  <%= submit_tag "Search", class: "btn btn-primary col-3" %>
+  <%= submit_tag "Search", class: "btn btn-primary col-3 searchbtn" %>
   <%= link_to "Add a new place", new_place_path%>
   </div>
 <% end %>
@@ -62,6 +69,10 @@
                 <p>Reputation: 👍👍👍👍👍</p>
                 <p>Control: 😭😭😭😭😭</p>
                 <p>Regime 👑</p>
+                <h4>Owned by:</h4>
+                <%= place.user.name %> <br>
+                <%= place.user.bio %> <br>
+                <%= place.user.email %>
               </div>
           </div>
         <% end %>
@@ -72,5 +83,4 @@
 </div>
 </div>
 
-<p> User id : <%= current_user[:id] %></p>
 

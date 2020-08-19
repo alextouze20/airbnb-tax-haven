@@ -20,6 +20,9 @@
   text-decoration: none;
   color: white;
 }
+.cards a{
+  text-decoration: none;
+}
 .card{
   height: 400px;
   width: 400px;
@@ -29,9 +32,9 @@
   margin: 15px;
   transition-duration: 0.3s;
   &:hover{
-    filter: brightness(90%);
-    height: 500px;
-    width: 500px;
+    backdrop-filter:  blur(2px);
+    height: 450px;
+    width: 450px;
     transition-duration: 0.3s;
     h3{
       color: white;
@@ -40,6 +43,7 @@
       opacity: 1;
       text-decoration: none;
       transition-duration: 0.3s;
+       filter: Glow(Color=#ffffff, Strength=1)
     }
   }
 }

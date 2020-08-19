@@ -13,3 +13,16 @@
   border-radius: 50%;
   object-fit: cover;
 }
+.carousel-btn{
+  color: #FDDB3A;
+}
+.searchbtn{
+  font-weight: bold;
+  & :hover{
+
+  }
+}
+.carousel-indicator{
+  background-color: #FDDB3A;
+  border-radius: 10px
+}
