@@ -1,23 +1,36 @@
 <h1>User info</h1>
 <%= @user.name %>
+<%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill if @user.photo.attached? %>
 <%= @user.money %>
-<%= @user.password %>
 <%= @user.compagny %>
+<%= @user.bio %>
+<%= @user.email %>
+<% if policy(@user).edit? %>
+<%= link_to "Edit User Info", edit_user_path(current_user.id) %>
+<% end %>
+
 
 <h1>Places created by user</h1>
-<% if @user == current_user %>
   <% @user.places.each do |place| %>
     <%= link_to place.name, place_path(place.id) %>
     <%= cl_image_tag place.thumbnail.key, height: 300, width: 400, crop: :fill if place.thumbnail.attached? %>
+
+
+    <% if @user == current_user %>
     <%= link_to "Edit this place", edit_place_path(place.id) %>
     <%= link_to "🗑️",
       place_path(place.id),
       method: :delete,
       data: { confirm: "Are you sure?" } %>
+    <% end %>
+
   <% end %>
+  <% if @user == current_user %>
+  <p><%= link_to "Add a new place", new_place_path %></p>
+
 <% end %>
 
-<p><%= link_to "Add a new place", new_place_path %></p>
+
 
 <h2>Citizenships of user</h2>
 <ul>

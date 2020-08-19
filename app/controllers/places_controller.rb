@@ -26,9 +26,10 @@ class PlacesController < ApplicationController
   end
 
   def destroy
-    place = Place.find(params[:id])
+    @place = Place.find(params[:id])
     authorize @place
-    Place.destroy(place)
+    @place.destroy!
+    redirect_to places_path
   end
 
   def edit
