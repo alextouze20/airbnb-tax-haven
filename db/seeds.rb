@@ -7,7 +7,9 @@ User.destroy_all
 
 puts "Creating 1 user"
 
-user = User.new( { name: "Admin", email: "truc.biduche@gmail.com", password: "password"} )
+
+user = User.new( { name: "admin", password: "admin123456", email: "admin@evasion.com" } )
+
 user.save!
 
 puts "Creating 20 places"
