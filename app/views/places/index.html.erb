@@ -1,3 +1,4 @@
+
 <div id="carouselExampleIndicators" class="carousel slide d-flex align-items-center" data-ride="carousel">
   <ol class="carousel-indicators">
     <li class = "carousel-indicator"data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -40,6 +41,7 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+<%= link_to 'User Page', user_path(current_user) %>
 <%= form_tag places_path, method: :get do %>
   <div class="row d-flex align-items-center justify-content-center research-form">
     <%= text_field_tag :query,
