@@ -48,17 +48,84 @@
 
 </div>
 </div>
-<%= simple_form_for(@things) do |f| %>
-    <%= f.input :content %>
-    <%= f.input :rating %>
-<% end %>
-<% @place.reviews.each do |review| %>
-  <%= review.content %>
-  <% stars = ""%>
-  <% review.rating.times do  %>
-    <% stars += "⭐️" %>
-  <% end %>
-  <%= stars %>
-<% end %>
+<div class="row justify-content-center">
+  <div class="add-review col-6">
+    <h3>Review this place</h3>
+    <%= simple_form_for [@place, @review] do |f| %>
+      <%= f.input :content, wrapper_html: {class: "review-input"} %>
+      <%= f.input :rating, wrapper_html: {class: "review-input"} %>
+      <%= f.submit%>
+    <% end %>
+  </div>
+</div>
+<h2>Reviews:</h2>
+<div class="row justify-content-center">
+  <% @place.reviews.each do |review| %>
+    <div class="card-review col-6">
+      <% if !current_user.photo.attached?  %>
+        <%= image_tag "https://tse4.mm.bing.net/th?id=OIP.TneqgKQBUNi__W7XKshWlAHaHa&pid=Api", class: " dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% else %>
+        <%= cl_image_tag  current_user.photo.key, class: " dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% end %>
+      <div class="content-review">
+          <strong><%= review.user.name %></strong><br>
+          <%= review.content %>
+          <% stars = ""%>
+          <% review.rating.times do  %>
+            <% stars += "⭐️" %>
+          <% end %>
+          <%= stars %>
+      </div>
+      <% end %>
+    </div>
+</div>
+
+</div>
+
+<style>
+  .card-review {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.card-review img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+
+.card-review p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .content-review {
+  padding: 16px;
+}
+.review-input{
+  width: 400px;
+}
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
 
 
