@@ -47,18 +47,4 @@
 <p class="description-place"><%= @place.description %></p>
 
 </div>
-</div>
-<%= simple_form_for(@things) do |f| %>
-    <%= f.input :content %>
-    <%= f.input :rating %>
-<% end %>
-<% @place.reviews.each do |review| %>
-  <%= review.content %>
-  <% stars = ""%>
-  <% review.rating.times do  %>
-    <% stars += "⭐️" %>
-  <% end %>
-  <%= stars %>
-<% end %>
-
 
