@@ -6,7 +6,6 @@
 
 <div class="info-just-under-name">
 <p> Reputation: <% @place.reputation %> | Continent: <% @place.continent %> </p>
-<p> 📤Share ❤️Save</p>
 </div>
 
 
@@ -26,8 +25,8 @@
 
 
 <div class="person-who-made-the-place">
-<h2 class="header-h2">Tax Heaven hosted by <%= link_to @place.user.name, user_path(@place.user.id) %> </h2>
-<%= cl_image_tag @place.user.photo.key, height: 60, width: 60, crop: :fill if @place.user.photo.key.present?%>
+<h2 class="header-h2">Tax Heaven hosted by <%= link_to @place.user.name, profile_path(@place.user.id) %> </h2>
+<%= cl_image_tag @place.user.photo.key, height: 60, width: 60, crop: :fill if @place.user.photo.attached? %>
 </div>
 <p class="info-about-place"> Tax: <% @place.tax %> % | Tax Control Frequency: <% @place.control %> | Current Regime: <% @place.regime %></p>
 
@@ -35,12 +34,19 @@
 
 <div class="request-citizenship-box">
 <p class="min-income-header">Mininum Income Required:</p>
-<p class="min-income-itself"> <%= @place.min_income  %> Dollars</p>
+<p class="min-income-itself">$<%= @place.min_income  %></p>
 <%= link_to "Request citizenship",
  place_citizenships_path(@place),
   method: :post,
   data: { confirm: "Request citizenship?"
    }, class: "btn-primary request-citizenship-button"  %>
+  <p class="min-income-header">Mininum Income Required:</p>
+  <p class="min-income-itself"> <%= @place.min_income  %> Dollars</p>
+  <%= link_to "Request citizenship",
+   place_citizenships_path(@place),
+    method: :post,
+    data: { confirm: "Request citizenship?"
+     }, class: "btn-primary request-citizenship-button"  %>
 </div>
 </div>
 
@@ -48,7 +54,39 @@
 
 </div>
 </div>
+<% if policy(Review.new(user: current_user, place: @place)).create? %>
+<div class="row justify-content-center">
+  <div class="add-review col-6">
+    <h3>Review this place</h3>
+    <%= simple_form_for [@place, @review] do |f| %>
+      <%= f.input :content, wrapper_html: {class: "review-input"} %>
+      <%= f.input :rating, as: :select, collection: 1..5, wrapper_html: {class: "review-input"} %>
+      <%= f.submit%>
+    <% end %>
+  </div>
+</div>
+<% end %>
+<h2>Reviews:</h2>
+<div class="row justify-content-center">
+  <% @place.reviews.each do |review| %>
+    <div class="card-review col-6">
+      <% if !current_user.photo.attached?  %>
+        <%= image_tag "https://tse4.mm.bing.net/th?id=OIP.TneqgKQBUNi__W7XKshWlAHaHa&pid=Api", class: " dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% else %>
+        <%= cl_image_tag  current_user.photo.key, class: " dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% end %>
+      <div class="content-review">
+          <strong><%= review.user.name %></strong><br>
+          <%= review.content %>
+          <% stars = ""%>
+          <% review.rating.times do  %>
+            <% stars += "⭐️" %>
+          <% end %>
+          <%= stars %>
+      </div>
+    </div>
+    <% end %>
+</div>
 
-
-
+</div>
 
