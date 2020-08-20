@@ -7,11 +7,12 @@
  }
 
 .container-user-show {
-
- width: 800px;
- align-items: flex-start;
- flex-direction: column;
- display: flex;
+  position: relative;
+  left: -205px;
+  width: 800px;
+  align-items: flex-start;
+  flex-direction: column;
+  display: flex;
 
 }
 
@@ -88,7 +89,9 @@ margin-bottom: 0px;
 .description-place {
   padding-top: 30px;
   padding-bottom: 30px;
-  width: 1015px;
+  width: 876px;
+  position: relative;
+  left: -236;
   text-align: left;
   border-bottom: gray 1px solid;
 }
@@ -104,8 +107,9 @@ margin-bottom: 0px;
 
 .request-citizenship-box {
 
-  position: absolute;
-  right: -318px; top: 15px;
+  position: fixed;
+  right: 30px;
+  top: 50%;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -133,3 +137,35 @@ margin-bottom: 0px;
   padding-top: 12px;
   padding-bottom: 12px;
 }
+  .card-review {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.card-review img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+
+.card-review p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .content-review {
+  padding: 16px;
+}
+.review-input{
+  width: 400px;
+}
+
+

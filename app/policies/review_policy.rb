@@ -1,5 +1,4 @@
 class ReviewPolicy < ApplicationPolicy
-
   def new?
     true
   end
