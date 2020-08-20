@@ -83,7 +83,7 @@ cook = Place.new(
     name: "Cook Islands",
     description: "The Cook Islands (Cook Islands Māori: Kūki 'Āirani)[6] is a self-governing island country in the South Pacific Ocean in free association with New Zealand. It comprises 15 islands whose total land area is 240 square kilometres (93 sq mi). The Cook Islands' Exclusive Economic Zone (EEZ) covers 1,96027 square kilometres (756,771 sq mi) of ocean.[7]
                 New Zealand is responsible for the Cook Islands' defence and foreign affairs, but these responsibilities are exercised in consultation with the Cook Islands.[8] In recent times, the Cook Islands have adopted an increasingly independent foreign policy.[9] Cook Islanders are citizens of New Zealand, but they also have the status of Cook Islands nationals, which is not given to other New Zealand citizens. The Cook Islands has been an active member of the Pacific Community since 1980.",
-    rand(10000..1000000000),
+    min_income: rand(10000..1000000000),
     reputation: ['Bad','Good','Very Good'].sample,
     regime: ['Democraty','Monarchy','Dictature'].sample,
     control: ['None','Low','Strict'].sample
