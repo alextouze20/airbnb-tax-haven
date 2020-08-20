@@ -22,4 +22,8 @@ class PlacePolicy < ApplicationPolicy
   def update?
     record.user == user
   end
+
+  def quizz?
+    true
+  end
 end
