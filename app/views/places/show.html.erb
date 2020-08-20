@@ -1,16 +1,54 @@
-<h1><%= @place.name %></h1>
-<p><%= @place.description %></p>
+<div class="container-big">
+<div class="container-user-show">
 
-<%= cl_image_tag @place.thumbnail.key, height: 300, width: 400, crop: :fill if @place.thumbnail.attached? %>
+
+<h1 class="show-header"><%= @place.name %></h1>
+
+<div class="info-just-under-name">
+<p> Reputation: <% @place.reputation %> | Continent: <% @place.continent %> </p>
+<p> 📤Share ❤️Save</p>
+</div>
+
+
+<div class="images-flexbox">
+<%= cl_image_tag @place.thumbnail.key, height: 550, width: 500, crop: :fill, class: "class-truc"  if @place.thumbnail.attached? %>
+<div class="square-photos">
 <% if @place.photos.attached? %>
 <% @place.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag photo.key, height: 270, width: 250, crop: :fill %>
+  <% end %>
 <% end %>
-<% end %>
-<%= link_to "Home", places_path %> | <%= link_to "Request citizenship",
+</div>
+</div>
+
+
+<div class="info-general">
+
+
+<div class="person-who-made-the-place">
+<h2 class="header-h2">Tax Heaven hosted by <%= link_to @place.user.name, user_path(@place.user.id) %> </h2>
+<%= cl_image_tag @place.user.photo.key, height: 60, width: 60, crop: :fill if @place.user.photo.key.present?%>
+</div>
+<p class="info-about-place"> Tax: <% @place.tax %> % | Tax Control Frequency: <% @place.control %> | Current Regime: <% @place.regime %></p>
+
+
+
+<div class="request-citizenship-box">
+<p class="min-income-header">Mininum Income Required:</p>
+<p class="min-income-itself"> <%= @place.min_income  %> Dollars</p>
+<%= link_to "Request citizenship",
  place_citizenships_path(@place),
   method: :post,
   data: { confirm: "Request citizenship?"
-   } %>
-| <%= link_to "See this place's submitter", user_path(@place.user.id) %>
+   }, class: "btn-primary request-citizenship-button"  %>
+</div>
+</div>
+
+<p class="description-place"><%= @place.description %></p>
+
+</div>
+</div>
+
+
+
 

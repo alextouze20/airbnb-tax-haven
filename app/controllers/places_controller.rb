@@ -3,7 +3,7 @@ class PlacesController < ApplicationController
      @places = policy_scope(Place).order(created_at: :desc)
     if params[:query].present?
       @places = @places.select { |place| place.min_income <= params[:query].to_i }
-      @places = "Fuck off peasant" if @places.empty?
+      @places = "Fuck off Peasant." if @places.empty?
     end
   end
 
