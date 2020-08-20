@@ -22,7 +22,7 @@
   </div>
       <div class="btn-edit-user-info">
         <% if policy(@user).edit? %>
-          <%= link_to "Edit User Info", edit_user_path(current_user.id), class: "btn" %>
+          <%= link_to "Edit User Info", edit_profile_path(current_user.id), class: "btn" %>
         <% end %>
       </div>
 </div>
