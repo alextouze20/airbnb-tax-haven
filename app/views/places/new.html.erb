@@ -9,7 +9,7 @@
   <%= f.input :min_income,wrapper_html: {class: "col-6"} %>
   <%= f.input :description,wrapper_html: {class: "col-6"} %>
   <%= f.input :thumbnail, as: :file,wrapper_html: {class: "col-6"} %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } ,wrapper_html: {class: "col-6"}%>
+  <%= f.input :photos, as: :file, input_html: { multiple: true }, wrapper_html: {class: "col-6"}%>
   <%= f.submit  %>
 <% end %>
-<%= link_to 'Go Back', user_path(current_user) %>
+<%= link_to 'Go Back', profile_path(current_user) %>

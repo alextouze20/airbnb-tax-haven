@@ -26,8 +26,8 @@
 
 
 <div class="person-who-made-the-place">
-<h2 class="header-h2">Tax Heaven hosted by <%= link_to @place.user.name, user_path(@place.user.id) %> </h2>
-<%= cl_image_tag @place.user.photo.key, height: 60, width: 60, crop: :fill if @place.user.photo.key.present?%>
+<h2 class="header-h2">Tax Heaven hosted by <%= link_to @place.user.name, profile_path(@place.user.id) %> </h2>
+<%= cl_image_tag @place.user.photo.key, height: 60, width: 60, crop: :fill if @place.user.photo.attached? %>
 </div>
 <p class="info-about-place"> Tax: <% @place.tax %> % | Tax Control Frequency: <% @place.control %> | Current Regime: <% @place.regime %></p>
 
@@ -48,7 +48,17 @@
 
 </div>
 </div>
-
-
+<%= simple_form_for(@things) do |f| %>
+    <%= f.input :content %>
+    <%= f.input :rating %>
+<% end %>
+<% @place.reviews.each do |review| %>
+  <%= review.content %>
+  <% stars = ""%>
+  <% review.rating.times do  %>
+    <% stars += "⭐️" %>
+  <% end %>
+  <%= stars %>
+<% end %>
 
 
