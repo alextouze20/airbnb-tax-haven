@@ -68,6 +68,9 @@
     <%  if @places.class == String %>
       <h2><%=  @places %></h2>
     <% else %>
+    <% reputation_emoji = {'Bad' => "👎",'Good' =>"👍",'Very Good' => "👍👍"} %>
+    <% regime_emoji = {'Democraty' =>"📢",'Monarchy' => "👑",'Dictature'=>"⚔️"} %>
+    <% control_emoji = {'None' => "💸💸💸💸💸" ,'Low' => "💸💸💸",'Strict' => "😢"} %>
       <% @places.each do |place| %>
         <%= link_to place_path(place) do %>
           <div class="card d-flex" style = "background-image: linear-gradient(to bottom, rgba(246, 244,230, 0.2), rgba(253, 219, 58, 0.2)),url(<%= cl_image_path place.thumbnail.key, height: 300, width: 400, crop: :fill if place.thumbnail.attached? %>)">
@@ -75,10 +78,10 @@
                 <h3><%= place.name %></h3>
                 <div class="description">
                   <%= place.description.first(100) + " ..." %>
-                  <p>Tax level: 💸💸💸💸💸</p>
-                  <p>Reputation: 👍👍👍👍👍</p>
-                  <p>Control: 😭😭😭😭😭</p>
-                  <p>Regime 👑</p>
+                  <p>Tax: <%= place.tax %></p>
+                  <p>Reputation <%= reputation_emoji[place.reputation].nil? ? "😢" : reputation_emoji[place.reputation]  %></p>
+                  <p>Control: <%= control_emoji[place.control].nil? ? "😢" : control_emoji[place.control]  %></p>
+                  <p>Regime: <%= regime_emoji[place.regime].nil? ? "?" : regime_emoji[place.regime] %> </p>
                 </div>
               </div>
           </div>
