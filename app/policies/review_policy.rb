@@ -4,7 +4,7 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    record.place.user != user && (record.place.reviews.select { |review| review.user == user } == [])
   end
 
   def destroy?

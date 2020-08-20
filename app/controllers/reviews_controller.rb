@@ -6,8 +6,8 @@ class ReviewsController < ApplicationController
   def create
     review = Review.new(strong_review)
     review.user = current_user
-    authorize review
     review.place = Place.find(params[:place_id])
+    authorize review
     review.save
     redirect_to place_path(params[:place_id])
   end
