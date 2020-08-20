@@ -5,11 +5,11 @@
     <h1>Find the best countries for tax evasion. </h1>
     <p>Find the best tax haven countries arround the world, escape your local tax policies and save millions and millions of dollars!</p>
           <div class="search-form">
-            <p>I'm a:</p>
+            <p>Now, how rich are you, exactly?</p>
             <%= form_tag places_path(anchor: "results"), method: :get do %>
           <div class="row d-flex align-items-center research-form">
             <%= select_tag :query,
-            raw('<option value="1">My net worth is... hmmm... underwhelming?</option><option value="2">Middle Class</option><option value="3">Millionaire</option><option value="4">Multi-Millionaire</option><option value="5">Bilionnaire</option><option value="6">Multi-Billionaire</option><option value="7">Richer than God</option>')
+            raw('<option value="1">My net worth is... hmmm... underwhelming?</option><option value="2">I\'m a proud member of the Middle Class</option><option value="3">I\'m a Millionaire</option><option value="4">I\'m a Multi-Millionaire</option><option value="5">I\'m a Bilionnaire</option><option value="6">I\'m a Multi-Billionaire</option><option value="7">I am Richer than God</option>')
         %>
           <%= submit_tag "Search", class: "btn btn-primary col-3 searchbtn mx-4" %>
         <%= link_to "Add a new place", new_place_path%>

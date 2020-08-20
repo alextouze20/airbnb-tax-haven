@@ -54,7 +54,7 @@
     <h3>Review this place</h3>
     <%= simple_form_for [@place, @review] do |f| %>
       <%= f.input :content, wrapper_html: {class: "review-input"} %>
-      <%= f.input :rating, wrapper_html: {class: "review-input"} %>
+      <%= f.input :rating, as: :select, collection: 1..5, wrapper_html: {class: "review-input"} %>
       <%= f.submit%>
     <% end %>
   </div>
