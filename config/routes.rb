@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :citizenships, only: [:show, :new, :create, :destroy]
     resources :reviews, only: [:create, :destroy]
   end
-  resources :users, only: [:edit,:update, :show]
+  resources :profiles, only: [:edit, :update, :show]
+
 end
