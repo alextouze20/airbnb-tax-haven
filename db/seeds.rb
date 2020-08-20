@@ -10,9 +10,13 @@ puts "Creating 1 user"
 
 
 user = User.new( { name: "admin", password: "admin123456", email: "admin@evasion.com" } )
-file =URI.open("http://facebookfplus.com/upload/images/600_97d118b7a6f8f87d18f7b1385ea7665e.png")
+file = URI.open("http://facebookfplus.com/upload/images/600_97d118b7a6f8f87d18f7b1385ea7665e.png")
 user.photo.attach(io: File.open(file), filename: 'admin-pfp.jpg', content_type: 'image/jpg')
 
+extra_photo_1 = URI.open("https://source.unsplash.com/800x600?beach,1")
+extra_photo_2 = URI.open("https://source.unsplash.com/800x600?beach,2")
+extra_photo_3 = URI.open("https://source.unsplash.com/800x600?beach,3")
+extra_photo_4 = URI.open("https://source.unsplash.com/800x600?beach,4")
 
 user.save!
 
@@ -29,10 +33,12 @@ bahamas = Place.new(
     control: ['None','Low','Strict'].sample
 )
 
-prefix = Rails.env.development? ? "../airbnb-tax-haven/app/assets/images/" : "/boats/"
-
 file = URI.open('https://www.smartertravel.com/uploads/2020/01/nassau-atlantis-resort.jpg')
 bahamas.thumbnail.attach(io: File.open(file), filename: 'bahamas.jpg', content_type: 'image/jpg')
+bahamas.photos.attach(io: File.open(extra_photo_1), filename: 'bahamas-1.jpg', content_type: 'image/jpg')
+bahamas.photos.attach(io: File.open(extra_photo_2), filename: 'bahamas-2.jpg', content_type: 'image/jpg')
+bahamas.photos.attach(io: File.open(extra_photo_3), filename: 'bahamas-3.jpg', content_type: 'image/jpg')
+bahamas.photos.attach(io: File.open(extra_photo_4), filename: 'bahamas-4.jpg', content_type: 'image/jpg')
 bahamas.user = user
 bahamas.save!
 
@@ -47,8 +53,12 @@ virgin = Place.new(
     control: ['None','Low','Strict'].sample
 )
 
-file = URI.open('https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&w=1600&h=838&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F28%2F2017%2F03%2Fjost-van-dyke-british-virgin-islands-caribbean-BVI0310.jpg')
+file = URI.open("https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&w=1600&h=838&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F28%2F2017%2F03%2Fjost-van-dyke-british-virgin-islands-caribbean-BVI0310.jpg")
 virgin.thumbnail.attach(io: File.open(file), filename: 'british-virgin-islands.jpg', content_type: 'image/jpg')
+virgin.photos.attach(io: File.open(extra_photo_1), filename: 'virgin-1.jpg', content_type: 'image/jpg')
+virgin.photos.attach(io: File.open(extra_photo_2), filename: 'virgin-2.jpg', content_type: 'image/jpg')
+virgin.photos.attach(io: File.open(extra_photo_3), filename: 'virgin-3.jpg', content_type: 'image/jpg')
+virgin.photos.attach(io: File.open(extra_photo_4), filename: 'virgin-4.jpg', content_type: 'image/jpg')
 virgin.user = user
 virgin.save!
 
@@ -63,6 +73,10 @@ bermuda = Place.new(
 
 file = URI.open('https://www.gotobermuda.com/sites/default/files/styles/hero_wide/public/ber-island.jpg?itok=R-GNaVD0')
 bermuda.thumbnail.attach(io: File.open(file), filename: 'bermuda.jpg', content_type: 'image/jpg')
+bermuda.photos.attach(io: File.open(extra_photo_1), filename: 'bermuda-1.jpg', content_type: 'image/jpg')
+bermuda.photos.attach(io: File.open(extra_photo_2), filename: 'bermuda-2.jpg', content_type: 'image/jpg')
+bermuda.photos.attach(io: File.open(extra_photo_3), filename: 'bermuda-3.jpg', content_type: 'image/jpg')
+bermuda.photos.attach(io: File.open(extra_photo_4), filename: 'bermuda-4.jpg', content_type: 'image/jpg')
 bermuda.user = user
 bermuda.save!
 
@@ -76,6 +90,10 @@ cayman = Place.new(
 )
 file = URI.open('https://cdn-image.departures.com/sites/default/files/styles/responsive_900x600/public/1551473630/cayman-islands-caribbean-CAYMAN0319.jpg?itok=zD8HiH9k')
 cayman.thumbnail.attach(io: File.open(file), filename: 'cayman-islands.jpg', content_type: 'image/jpg')
+cayman.photos.attach(io: File.open(extra_photo_1), filename: 'cayman-1.jpg', content_type: 'image/jpg')
+cayman.photos.attach(io: File.open(extra_photo_2), filename: 'cayman-2.jpg', content_type: 'image/jpg')
+cayman.photos.attach(io: File.open(extra_photo_3), filename: 'cayman-3.jpg', content_type: 'image/jpg')
+cayman.photos.attach(io: File.open(extra_photo_4), filename: 'cayman-4.jpg', content_type: 'image/jpg')
 cayman.user = user
 cayman.save!
 
@@ -91,6 +109,10 @@ cook = Place.new(
 
 file = URI.open('https://cookislands.travel/sites/default/files/2019-10/home_things_to_do_aitutaki.jpg')
 cook.thumbnail.attach(io: File.open(file), filename: 'cook-islands.jpg', content_type: 'image/jpg')
+cook.photos.attach(io: File.open(extra_photo_1), filename: 'cook-1.jpg', content_type: 'image/jpg')
+cook.photos.attach(io: File.open(extra_photo_2), filename: 'cook-2.jpg', content_type: 'image/jpg')
+cook.photos.attach(io: File.open(extra_photo_3), filename: 'cook-3.jpg', content_type: 'image/jpg')
+cook.photos.attach(io: File.open(extra_photo_4), filename: 'cook-4.jpg', content_type: 'image/jpg')
 cook.user = user
 cook.save!
 
@@ -106,8 +128,13 @@ jersey = Place.new(
 
 file = URI.open('https://cdn.britannica.com/89/140989-050-C58C985F/Lighthouse-Jersey-Channel-Islands.jpg')
 jersey.thumbnail.attach(io: File.open(file), filename: 'islands-of-jersey.jpg', content_type: 'image/jpg')
+jersey.photos.attach(io: File.open(extra_photo_1), filename: 'jersey-1.jpg', content_type: 'image/jpg')
+jersey.photos.attach(io: File.open(extra_photo_2), filename: 'jersey-2.jpg', content_type: 'image/jpg')
+jersey.photos.attach(io: File.open(extra_photo_3), filename: 'jersey-3.jpg', content_type: 'image/jpg')
+jersey.photos.attach(io: File.open(extra_photo_4), filename: 'jersey-4.jpg', content_type: 'image/jpg')
 jersey.user = user
 jersey.save!
+
 
 hk = Place.new(
     name: "Hong Kong",
@@ -120,8 +147,13 @@ hk = Place.new(
 
 file = URI.open('https://images.unsplash.com/photo-1536599018102-9f803c140fc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80')
 hk.thumbnail.attach(io: File.open(file), filename: 'hong-kong.jpg', content_type: 'image/jpg')
+hk.photos.attach(io: File.open(extra_photo_1), filename: 'hk-1.jpg', content_type: 'image/jpg')
+hk.photos.attach(io: File.open(extra_photo_2), filename: 'hk-2.jpg', content_type: 'image/jpg')
+hk.photos.attach(io: File.open(extra_photo_3), filename: 'hk-3.jpg', content_type: 'image/jpg')
+hk.photos.attach(io: File.open(extra_photo_4), filename: 'hk-4.jpg', content_type: 'image/jpg')
 hk.user = user
 hk.save!
+
 
 licht = Place.new(
     name: "Lichtenstein",
@@ -134,8 +166,13 @@ licht = Place.new(
 
 file = URI.open('https://www.traveller.com.au/content/dam/images/h/1/h/s/r/n/image.related.articleLeadwide.620x349.h1hk50.png/1568342268009.jpg')
 licht.thumbnail.attach(io: File.open(file), filename: 'lichtenstein.jpg', content_type: 'image/jpg')
+licht.photos.attach(io: File.open(extra_photo_1), filename: 'licht-1.jpg', content_type: 'image/jpg')
+licht.photos.attach(io: File.open(extra_photo_2), filename: 'licht-2.jpg', content_type: 'image/jpg')
+licht.photos.attach(io: File.open(extra_photo_3), filename: 'licht-3.jpg', content_type: 'image/jpg')
+licht.photos.attach(io: File.open(extra_photo_4), filename: 'licht-4.jpg', content_type: 'image/jpg')
 licht.user = user
 licht.save!
+
 
 monaco = Place.new(
     name: "Monaco",
@@ -147,8 +184,13 @@ monaco = Place.new(
 )
 file = URI.open('https://www.visitmonaco.com/ImageRepository/PageListe/ebfef823-815b-45ad-b3c0-2339c85e8b0e/Slider/3-shutterstock-427693039.jpg?Width=1700&Height=850')
 monaco.thumbnail.attach(io: File.open(file), filename: 'monaco.jpg', content_type: 'image/jpg')
+monaco.photos.attach(io: File.open(extra_photo_1), filename: 'monaco-1.jpg', content_type: 'image/jpg')
+monaco.photos.attach(io: File.open(extra_photo_2), filename: 'monaco-2.jpg', content_type: 'image/jpg')
+monaco.photos.attach(io: File.open(extra_photo_3), filename: 'monaco-3.jpg', content_type: 'image/jpg')
+monaco.photos.attach(io: File.open(extra_photo_4), filename: 'monaco-4.jpg', content_type: 'image/jpg')
 monaco.user = user
 monaco.save!
+
 
 curacao = Place.new(
   name: 'Curaçao',
@@ -160,8 +202,13 @@ curacao = Place.new(
 )
 file = URI.open('https://i.insider.com/5dc475ba7eece543e61b7bc4')
 curacao.thumbnail.attach(io: File.open(file), filename: 'curacao.jpg', content_type: 'image/jpg')
+curacao.photos.attach(io: File.open(extra_photo_1), filename: 'curacao-1.jpg', content_type: 'image/jpg')
+curacao.photos.attach(io: File.open(extra_photo_2), filename: 'curacao-2.jpg', content_type: 'image/jpg')
+curacao.photos.attach(io: File.open(extra_photo_3), filename: 'curacao-3.jpg', content_type: 'image/jpg')
+curacao.photos.attach(io: File.open(extra_photo_4), filename: 'curacao-4.jpg', content_type: 'image/jpg')
 curacao.user = user
 curacao.save!
+
 
 mauritius = Place.new(
   name: 'Mauritius',
@@ -174,8 +221,13 @@ mauritius = Place.new(
 
 file = URI.open('https://i.insider.com/5dc475973afd3742f32e4cb4')
 mauritius.thumbnail.attach(io: File.open(file), filename: 'mauritius.jpg', content_type: 'image/jpg')
+mauritius.photos.attach(io: File.open(extra_photo_1), filename: 'mauritius-1.jpg', content_type: 'image/jpg')
+mauritius.photos.attach(io: File.open(extra_photo_2), filename: 'mauritius-2.jpg', content_type: 'image/jpg')
+mauritius.photos.attach(io: File.open(extra_photo_3), filename: 'mauritius-3.jpg', content_type: 'image/jpg')
+mauritius.photos.attach(io: File.open(extra_photo_4), filename: 'mauritius-4.jpg', content_type: 'image/jpg')
 mauritius.user = user
 mauritius.save!
+
 
 nauru = Place.new(
   name: 'Nauru',
@@ -188,8 +240,13 @@ nauru = Place.new(
 
 file = URI.open('https://i.insider.com/5dc475647eece5436349a7c7')
 nauru.thumbnail.attach(io: File.open(file), filename: 'nauru.jpg', content_type: 'image/jpg')
+nauru.photos.attach(io: File.open(extra_photo_1), filename: 'nauru-1.jpg', content_type: 'image/jpg')
+nauru.photos.attach(io: File.open(extra_photo_2), filename: 'nauru-2.jpg', content_type: 'image/jpg')
+nauru.photos.attach(io: File.open(extra_photo_3), filename: 'nauru-3.jpg', content_type: 'image/jpg')
+nauru.photos.attach(io: File.open(extra_photo_4), filename: 'nauru-4.jpg', content_type: 'image/jpg')
 nauru.user = user
 nauru.save!
+
 
 cyprus = Place.new(
   name: 'Cyprus',
@@ -202,8 +259,13 @@ cyprus = Place.new(
 
 file = URI.open('https://i.insider.com/5dc4751d7eece543190bc5e2')
 cyprus.thumbnail.attach(io: File.open(file), filename: 'cyprus.jpg', content_type: 'image/jpg')
+cyprus.photos.attach(io: File.open(extra_photo_1), filename: 'cyprus-1.jpg', content_type: 'image/jpg')
+cyprus.photos.attach(io: File.open(extra_photo_2), filename: 'cyprus-2.jpg', content_type: 'image/jpg')
+cyprus.photos.attach(io: File.open(extra_photo_3), filename: 'cyprus-3.jpg', content_type: 'image/jpg')
+cyprus.photos.attach(io: File.open(extra_photo_4), filename: 'cyprus-4.jpg', content_type: 'image/jpg')
 cyprus.user = user
 cyprus.save!
+
 
 seychelles = Place.new(
   name: 'Seychelles',
@@ -216,8 +278,13 @@ seychelles = Place.new(
 
 file = URI.open('https://i.insider.com/5dc4752c7eece5431f3ecb93')
 seychelles.thumbnail.attach(io: File.open(file), filename: 'seychelles.jpg', content_type: 'image/jpg')
+seychelles.photos.attach(io: File.open(extra_photo_1), filename: 'seychelles-1.jpg', content_type: 'image/jpg')
+seychelles.photos.attach(io: File.open(extra_photo_2), filename: 'seychelles-2.jpg', content_type: 'image/jpg')
+seychelles.photos.attach(io: File.open(extra_photo_3), filename: 'seychelles-3.jpg', content_type: 'image/jpg')
+seychelles.photos.attach(io: File.open(extra_photo_4), filename: 'seychelles-4.jpg', content_type: 'image/jpg')
 seychelles.user = user
 seychelles.save!
+
 
 malta = Place.new(
   name: 'Malta',
@@ -230,8 +297,14 @@ malta = Place.new(
 
 file = URI.open('https://financemalta.org/app/uploads/2019/08/iStock-1152812253-1200x1200.jpg')
 malta.thumbnail.attach(io: File.open(file), filename: 'malta.jpg', content_type: 'image/jpg')
+malta.photos.attach(io: File.open(extra_photo_1), filename: 'malta-1.jpg', content_type: 'image/jpg')
+malta.photos.attach(io: File.open(extra_photo_2), filename: 'malta-2.jpg', content_type: 'image/jpg')
+malta.photos.attach(io: File.open(extra_photo_3), filename: 'malta-3.jpg', content_type: 'image/jpg')
+malta.photos.attach(io: File.open(extra_photo_4), filename: 'malta-4.jpg', content_type: 'image/jpg')
+malta.user = user
 malta.user = user
 malta.save!
+
 
 switzerland = Place.new(
   name: 'Switzerland',
@@ -244,8 +317,14 @@ switzerland = Place.new(
 
 file = URI.open('https://www.pixfan.com/wp-content/uploads/2017/09/brigitte_djajasasmita-01.jpg.webp')
 switzerland.thumbnail.attach(io: File.open(file), filename: 'switzerland.jpg', content_type: 'image/jpg')
+switzerland.photos.attach(io: File.open(extra_photo_1), filename: 'switzerland-1.jpg', content_type: 'image/jpg')
+switzerland.photos.attach(io: File.open(extra_photo_2), filename: 'switzerland-2.jpg', content_type: 'image/jpg')
+switzerland.photos.attach(io: File.open(extra_photo_3), filename: 'switzerland-3.jpg', content_type: 'image/jpg')
+switzerland.photos.attach(io: File.open(extra_photo_4), filename: 'switzerland-4.jpg', content_type: 'image/jpg')
+switzerland.user = user
 switzerland.user = user
 switzerland.save!
+
 
 luxembourg = Place.new(
   name: 'Luxembourg',
@@ -258,8 +337,13 @@ luxembourg = Place.new(
 
 file = URI.open('https://i.insider.com/5d713b3b2e22af509a07e9cd')
 luxembourg.thumbnail.attach(io: File.open(file), filename: 'luxembourg.jpg', content_type: 'image/jpg')
+luxembourg.photos.attach(io: File.open(extra_photo_1), filename: 'luxembourg-1.jpg', content_type: 'image/jpg')
+luxembourg.photos.attach(io: File.open(extra_photo_2), filename: 'luxembourg-2.jpg', content_type: 'image/jpg')
+luxembourg.photos.attach(io: File.open(extra_photo_3), filename: 'luxembourg-3.jpg', content_type: 'image/jpg')
+luxembourg.photos.attach(io: File.open(extra_photo_4), filename: 'luxembourg-4.jpg', content_type: 'image/jpg')
 luxembourg.user = user
 luxembourg.save!
+
 
 delaware = Place.new(
   name: 'Delaware',
@@ -272,8 +356,13 @@ delaware = Place.new(
 
 file = URI.open('https://www.businesssetup.com/sites/default/files/blog_images/why-delaware-is-the-ideal-place-to-set-up-your-business-in-us.jpg')
 delaware.thumbnail.attach(io: File.open(file), filename: 'delaware.jpg', content_type: 'image/jpg')
+delaware.photos.attach(io: File.open(extra_photo_1), filename: 'delaware-1.jpg', content_type: 'image/jpg')
+delaware.photos.attach(io: File.open(extra_photo_2), filename: 'delaware-2.jpg', content_type: 'image/jpg')
+delaware.photos.attach(io: File.open(extra_photo_3), filename: 'delaware-3.jpg', content_type: 'image/jpg')
+delaware.photos.attach(io: File.open(extra_photo_4), filename: 'delaware-4.jpg', content_type: 'image/jpg')
 delaware.user = user
 delaware.save!
+
 
 panama = Place.new(
   name: 'Panama',
@@ -286,6 +375,10 @@ panama = Place.new(
 
 file = URI.open('https://www.deginvest.de/Bilder-und-Grafiken/DEG/Au%C3%9Fenbueros/Panama-City_Satellit_Responsive_1280x520.jpg')
 panama.thumbnail.attach(io: File.open(file), filename: 'panama.jpg', content_type: 'image/jpg')
+panama.photos.attach(io: File.open(extra_photo_1), filename: 'panama-1.jpg', content_type: 'image/jpg')
+panama.photos.attach(io: File.open(extra_photo_2), filename: 'panama-2.jpg', content_type: 'image/jpg')
+panama.photos.attach(io: File.open(extra_photo_3), filename: 'panama-3.jpg', content_type: 'image/jpg')
+panama.photos.attach(io: File.open(extra_photo_4), filename: 'panama-4.jpg', content_type: 'image/jpg')
 panama.user = user
 panama.save!
 
