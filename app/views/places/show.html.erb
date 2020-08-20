@@ -35,13 +35,6 @@
 <div class="request-citizenship-box">
 <p class="min-income-header">Mininum Income Required:</p>
 <p class="min-income-itself">$<%= @place.min_income  %></p>
-<%= link_to "Request citizenship",
- place_citizenships_path(@place),
-  method: :post,
-  data: { confirm: "Request citizenship?"
-   }, class: "btn-primary request-citizenship-button"  %>
-  <p class="min-income-header">Mininum Income Required:</p>
-  <p class="min-income-itself"> <%= @place.min_income  %> Dollars</p>
   <%= link_to "Aptempt citizenship",
    quizz_path(@place), class: "btn-primary request-citizenship-button"  %>
 </div>

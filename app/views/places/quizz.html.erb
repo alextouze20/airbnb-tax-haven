@@ -6,16 +6,12 @@
 <button id="next">Next Question</button>
 <button id="submit">Submit Quiz</button>
 <div id="results"></div>
-<div>
-  <%= link_to "Request citizenship",
-   place_citizenships_path(@place),
-    method: :post,
-    data: { confirm: "Request citizenship?"
-     }, class: "btn-primary request-citizenship-button won"  %>
-</div>
-<div>
-  <%= link_to "Get out liar !", places_path, class: "btn-primary request-citizenship-button loose"   %>
-</div>
+<%= link_to "Request citizenship",
+ place_citizenships_path(@place),
+  method: :post,
+  data: { confirm: "Request citizenship?"
+   }, class: "btn-primary request-citizenship-button won"  %>
+<%= link_to "Get out liar !", places_path, class: "btn-primary request-citizenship-button loose"   %>
 
 <script>
 (function(){
@@ -256,18 +252,21 @@ button:hover{
 }
 .loose{
   position: absolute;
-  bottom: 10px;
-  right: 50%;
+  bottom: 219px;
+  right: 581px;
 }
 .won{
   position: absolute;
-  bottom: 100px;
-  right: 50%
+  bottom: 150px;
+  right:  545px;;
 }
 .result-btn{
   opacity: 1;
   pointer-events: fill;
 }
-
+.footer{
+  position: absolute;
+  bottom: 0px;
+}
 
 </style>
