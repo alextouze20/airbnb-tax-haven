@@ -8,6 +8,7 @@
 
 .container-user-show {
 
+ margin-top: 10%;
  width: 800px;
  align-items: flex-start;
  flex-direction: column;
@@ -126,10 +127,15 @@ margin-bottom: 0px;
 
 
 .request-citizenship-button {
-  border-radius: 12px;
+  border-radius: 5px;
   font-size: 22px;
   background-color: #FDDB3A;
   color: black;
   padding-top: 12px;
   padding-bottom: 12px;
+}
+
+.request-citizenship-button:hover {
+  background-color: #FDDB3A;
+  color: black;
 }
