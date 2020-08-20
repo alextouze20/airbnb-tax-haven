@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :places do
     resources :citizenships, only: [:show, :new, :create, :destroy]
   end
-  resources :users, only: [:edit,:update, :show]
+  resources :profiles, only: [:edit, :update, :show]
+
 end

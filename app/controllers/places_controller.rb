@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   def index
-     @places = policy_scope(Place).order(created_at: :desc)
+    @places = policy_scope(Place).order(created_at: :desc)
     if params[:query].present?
       @places = @places.select { |place| place.min_income <= params[:query].to_i }
       @places = "Fuck off Peasant." if @places.empty?
@@ -21,8 +21,11 @@ class PlacesController < ApplicationController
     @place = Place.new(strong_place)
     authorize @place
     @place.user = current_user
-    @place.save
-    redirect_to places_path
+    if @place.save
+      redirect_to places_path
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -69,4 +72,3 @@ class PlacesController < ApplicationController
                                   photos: [])
   end
 end
-
