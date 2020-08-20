@@ -1,9 +1,9 @@
 <div class="container-user-info">
-  <div class="img-user-center">
+  <div class="img-us">
   <%= cl_image_tag @user.photo.key, class: "user-img", height: 100, width: 100, crop: :fill if @user.photo.attached? %>
   </div>
-  <h1> User info</h1>
-  <div>
+<h1> User info</h1>
+  <div class="text-user-info">
     <div>
       Name : <%= @user.name %>
     </div>
@@ -19,49 +19,45 @@
     <div>
     email : <%= @user.email %>
     </div>
-      <% if policy(@user).edit? %>
-      <div>
-        <%= link_to "Edit User Info", edit_user_path(current_user.id), class: "btn btn-danger" %>
+  </div>
+      <div class="btn-edit-user-info">
+        <% if policy(@user).edit? %>
+          <%= link_to "Edit User Info", edit_user_path(current_user.id), class: "btn" %>
         <% end %>
       </div>
-  </div>
 </div>
+
 
 <div class="container-place-citizen">
   <div class="user-places">
-    <h1 class="text-left">Places created by user</h1>
-    <% @user.places.each do |place| %>
-    <div class="card-product">
-        <%= cl_image_tag place.thumbnail.key, height: 300, width: 400, crop: :fill if place.thumbnail.attached? %>
-      <div class="card-product-infos">
-        <h2><%= link_to place.name, place_path(place.id) %></h2>
-          <p><% if @user == current_user %>
-            <%= link_to "Edit this place", edit_place_path(place.id) %>
-            <%= link_to "🗑️",
-              place_path(place.id),
-              method: :delete,
-              data: { confirm: "Are you sure?" } %>
-              <% end %>
-        <% if @user == current_user %>
-        <%= link_to "Edit this place", edit_place_path(place.id) %>
-        <%= link_to "🗑️",
-          place_path(place.id),
-          method: :delete,
-          data: { confirm: "Are you sure?" } %>
-          <% end %>
-        <% end %>
-        </p>
-      </div>
+    <h1 class="text-left mb-5">Places created by user</h1>
+      <% @user.places.each do |place| %>
+        <div class= "card-user-places">
+          <%= cl_image_tag place.thumbnail.key, height: 200, width: 300, crop: :fill if place.thumbnail.attached? %>
+
+          <div class="pl-3">
+            <p><%= link_to place.name, place_path(place.id) %></p>
+            <% if @user == current_user %>
+              <p><%= link_to "Edit this place", edit_place_path(place.id) %></p>
+              <p><%= link_to "Delete this place 🗑️",
+                place_path(place.id),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %></p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+    <div class="pt-5">
+      <% if @user == current_user %>
+      <p><%= link_to "Add a new place", new_place_path, class: "btn"%></p>
+    <% end %>
     </div>
   </div>
 
-  <% if @user == current_user %>
-        <p><%= link_to "Add a new place", new_place_path, class: "btn btn-danger"%></p>
-    <% end %>
-
 
   <div class="user-citizenships">
-    <h2>Citizenships of user</h2>
+    <h2 class="text-left mb-5">Citizenships of user</h2>
     <ul>
       <% @user.citizenships.each do |citizenship| %>
         <li><%= citizenship.user.name %> - <%= citizenship.place.name %>
@@ -73,7 +69,7 @@
       <% end %>
     </ul>
 
-    <%= link_to 'Go back', places_path, class: "btn btn-danger" %>
+    <%= link_to 'Go back', places_path, class: "btn" %>
   </div>
 </div>
 

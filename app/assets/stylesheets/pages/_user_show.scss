@@ -1,10 +1,15 @@
+body {
+  background-color: #E9ECEF;
+}
+
 .container-user-info {
   margin-left: 5%;
   margin-right: 5%;
   margin-top: 10%;
-  border: 2px solid black;
+  border: 2px solid #E9ECEF;
   border-radius: 5px;
   padding: 5%;
+  background-color: white;
 }
 
 .user-img {
@@ -19,6 +24,14 @@
     display: flex;
 }
 
+.text-user-info {
+  font-family: Poppins, sans-serif;
+}
+
+.btn-edit-user-info {
+
+}
+
 .container-place-citizen {
   display: flex;
   justify-content: space-around;
@@ -29,52 +42,28 @@
 }
 
 .user-places {
-  border: 2px solid black;
+  border: 2px solid #E9ECEF;
   width: 100%;
   border-radius: 5px;
   padding: 5%;
   margin-right: 1%;
+  background-color: white;
 }
 
+.card-user-places {
+  box-shadow: 0px 6px 26px -10px rgba(0,0,0,0.75);
+  padding: 5%;
+  margin-top: 5%;
+  border-radius: 5px;
+  display: flex;
+}
+
+
 .user-citizenships {
-  border: solid 2px black;
+  border: solid 2px #E9ECEF;
   width: 100%;
   border-radius: 5px;
   padding: 5%;
   margin-left: 1%;
+  background-color: white;
 }
-
-
-.card-product {
-  overflow: hidden;
-  height: 120px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-}
-
-.card-product img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
-}
-
-.card-product h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
-.card-product .card-product-infos {
-  padding: 16px;
-}
-
