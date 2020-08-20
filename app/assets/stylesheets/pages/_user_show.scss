@@ -1,0 +1,25 @@
+body {
+  background-color: white;
+}
+
+h1, h2 {
+  color: #52575d;
+  font-family: "Work Sans", "Helvetica", "sans-serif";
+}
+
+.btn {
+  text-decoration: none;
+  padding: 9px 16px;
+  margin-left: 15px;
+  border-radius: 10px;
+  border-color: #fddb3a;
+  font-weight: bold;
+  color: #52575d;
+  background-color: #fddb3a;
+
+    &:hover {
+      background-color: #fddb3a;
+      border-color: #fddb3a;
+      color: #f6f4e6;
+    }
+}
