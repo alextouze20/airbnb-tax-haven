@@ -2,7 +2,17 @@ class PlacesController < ApplicationController
   def index
     @places = policy_scope(Place).order(created_at: :desc)
     if params[:query].present?
-      @places = @places.select { |place| place.min_income <= params[:query].to_i }
+      income = 1000000000
+      if params[:query] == "1"
+        income = 1000000000
+      elsif params[:query] == "2"
+        income = 1000000
+      elsif params[:query] == "3"
+        income = 1000000000
+      elsif params[:query] == "4"
+        income = 0
+      end
+      @places = @places.select { |place| place.min_income <= income }
       @places = "Fuck off Peasant." if @places.empty?
     end
   end
