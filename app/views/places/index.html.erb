@@ -6,7 +6,7 @@
     <p>Find the best tax haven countries arround the world, escape your local tax policies and save millions and millions of dollars!</p>
           <div class="search-form">
             <p>I'm a:</p>
-            <%= form_tag places_path, method: :get do %>
+            <%= form_tag places_path(anchor: "results"), method: :get do %>
           <div class="row d-flex align-items-center research-form">
             <%= select_tag :query,
             raw('<option value="1"></option><option value="2">Millionaire</option><option value="3">Bilionnaire</option><option value="4">None of these</option>')
@@ -59,39 +59,41 @@
 </div>
 
 <!----- LIST PLACES ---->
-
-<div class="results">
-<h2>Top tax haven to save your money.</h2>
-<div class="cards row">
-  <div class="d-flex justify-content-center align-items-center flex-wrap">
-    <%  if @places.class == String %>
-      <h2><%=  @places %></h2>
-    <% else %>
-    <% reputation_emoji = {'Bad' => "👎",'Good' =>"👍",'Very Good' => "👍👍"} %>
-    <% regime_emoji = {'Democraty' =>"📢",'Monarchy' => "👑",'Dictature'=>"⚔️"} %>
-    <% control_emoji = {'None' => "💸💸💸💸💸" ,'Low' => "💸💸💸",'Strict' => "😢"} %>
-      <% @places.each do |place| %>
-        <%= link_to place_path(place) do %>
-          <div class="card d-flex" style = "background-image: linear-gradient(to bottom, rgba(246, 244,230, 0.2), rgba(253, 219, 58, 0.2)),url(<%= cl_image_path place.thumbnail.key, height: 300, width: 400, crop: :fill if place.thumbnail.attached? %>)">
-              <div class="card-text text-center">
-                <h3><%= place.name %></h3>
-                <div class="description">
-                  <%= place.description.first(100) + " ..." %>
-                  <p>Tax: <%= place.tax %></p>
-                  <p>Reputation <%= reputation_emoji[place.reputation].nil? ? "😢" : reputation_emoji[place.reputation]  %></p>
-                  <p>Control: <%= control_emoji[place.control].nil? ? "😢" : control_emoji[place.control]  %></p>
-                  <p>Regime: <%= regime_emoji[place.regime].nil? ? "?" : regime_emoji[place.regime] %> </p>
+<div id="results">
+  <%  if @places.class == String %>
+    <div >
+      <h2 class="center-text-search"><%=  @places %></h2>
+      <p class="center-text-search-small">(Maybe try <%= link_to "this", 'https://www.leboncoin.fr/' %> instead)</p>
+    </div>
+  <% else %>
+    <div class="results">
+      <h2>Top tax haven to save your money.</h2>
+      <div class="cards row">
+        <div class="d-flex justify-content-center align-items-center flex-wrap">
+          <% reputation_emoji = {'Bad' => "👎",'Good' =>"👍",'Very Good' => "👍👍"} %>
+          <% regime_emoji = {'Democraty' =>"📢",'Monarchy' => "👑",'Dictature'=>"⚔️"} %>
+          <% control_emoji = {'None' => "💸💸💸💸💸" ,'Low' => "💸💸💸",'Strict' => "😢"} %>
+          <% @places.each do |place| %>
+            <%= link_to place_path(place) do %>
+              <div class="card d-flex" style = "background-image: linear-gradient(to bottom, rgba(246, 244,230, 0.2), rgba(253, 219, 58, 0.2)),url(<%= cl_image_path place.thumbnail.key, height: 300, width: 400, crop: :fill if place.thumbnail.attached? %>)">
+                <div class="card-text text-center">
+                  <h3><%= place.name %></h3>
+                  <div class="description">
+                    <%= place.description.first(100) + " ..." %>
+                    <p>Tax: <%= place.tax %></p>
+                    <p>Reputation <%= reputation_emoji[place.reputation].nil? ? "😢" : reputation_emoji[place.reputation]  %></p>
+                    <p>Control: <%= control_emoji[place.control].nil? ? "😢" : control_emoji[place.control]  %></p>
+                    <p>Regime: <%= regime_emoji[place.regime].nil? ? "?" : regime_emoji[place.regime] %> </p>
+                   </div>
                 </div>
               </div>
-          </div>
-        <% end %>
-      <% end %>
-    <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
-    </div>
-  </div>
+  <% end %>
 </div>
-
 <!----- SOME STYLE UNIQUE TO THIS PAGE --->
 
 
@@ -117,8 +119,7 @@ li.nav-item.dropdown > a {
     text-align: center;
     margin-bottom: 2%;
 }
-a{
-}
+
 </style>
 
 
