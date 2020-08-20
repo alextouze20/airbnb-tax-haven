@@ -48,6 +48,7 @@
 
 </div>
 </div>
+<% if policy(Review.new(user: current_user, place: @place)).create? %>
 <div class="row justify-content-center">
   <div class="add-review col-6">
     <h3>Review this place</h3>
@@ -58,6 +59,7 @@
     <% end %>
   </div>
 </div>
+<% end %>
 <h2>Reviews:</h2>
 <div class="row justify-content-center">
   <% @place.reviews.each do |review| %>
