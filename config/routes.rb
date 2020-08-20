@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create, :destroy]
   end
   resources :profiles, only: [:edit, :update, :show]
+  get '/quizz/:id', to: "places#quizz", as: "quizz"
 end

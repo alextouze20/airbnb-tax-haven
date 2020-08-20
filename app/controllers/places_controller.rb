@@ -73,6 +73,11 @@ class PlacesController < ApplicationController
     redirect_to places_path
   end
 
+  def quizz
+    @place = Place.find(params[:id])
+    authorize @place
+  end
+
   private
 
   def strong_place
