@@ -9,8 +9,7 @@
 <%= link_to "Request citizenship",
  place_citizenships_path(@place),
   method: :post,
-  data: { confirm: "Request citizenship?"
-   }, class: "btn-primary request-citizenship-button won"  %>
+  class: "btn-primary request-citizenship-button won"  %>
 <%= link_to "Get out liar !", places_path, class: "btn-primary request-citizenship-button loose"   %>
 
 <script>
@@ -149,7 +148,7 @@
       correctAnswer: "a"
     },
     {
-      question: "How many yatch do own?",
+      question: "How many yacht do you own?",
       answers: {
         a: "A what ?",
         b: "Does my bathtub count ?",
@@ -190,11 +189,11 @@ body{
 }
 h2{
   font-weight: 300;
-  margin: 0px;
+  margin-top: 80px;
   padding: 10px;
   font-size: 20px;
-  background-color: #444;
-  color: #fff;
+  background-color: #f6f4e6;
+  color: #52575d;
 }
 .question{
   font-size: 30px;
@@ -252,7 +251,7 @@ button:hover{
 }
 .loose{
   position: absolute;
-  bottom: 219px;
+  bottom: 150px;
   right: 581px;
 }
 .won{
@@ -267,6 +266,7 @@ button:hover{
 .footer{
   position: absolute;
   bottom: 0px;
+  background-color: #f6f4e6
 }
 
 </style>
