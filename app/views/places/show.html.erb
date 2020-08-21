@@ -30,7 +30,7 @@
       <%= cl_image_tag @place.user.photo.key, height: 60, width: 60, crop: :fill if @place.user.photo.attached? %>
     </div>
 
-    <p class="info-about-place">  <%= "Tax: " + @place.tax + "%" if @place.tax.present? %> <%= " | Tax Control Frequency: " + @place.control if @place.control.present? %>  <%= " | Current Regime: " + @place.regime if @place.regime.present? %></p>
+    <p class="info-about-place">  <%= "Tax: " + @place.tax.to_s + "%" if @place.tax.present? %> <%= " | Tax Control Frequency: " + @place.control if @place.control.present? %>  <%= " | Current Regime: " + @place.regime if @place.regime.present? %></p>
     <p class="description-place"><%= @place.description %></p>
 
   <% if policy(Review.new(user: current_user, place: @place)).create? %>
