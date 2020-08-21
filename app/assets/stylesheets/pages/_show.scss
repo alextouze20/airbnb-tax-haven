@@ -98,14 +98,15 @@ margin-bottom: 0px;
   position: relative;
   left: -236;
   text-align: left;
-  border-bottom: gray 1px solid;
+  // border-bottom: gray 1px solid;
+  opacity: 0.6;
 }
 
 .info-general {
   // position: relative;
   display: flex;
   padding-bottom: 80px;
-  border-bottom: gray 1px solid;
+  // border-bottom: gray 1px solid;
   p {
     text-align: left;
   }
