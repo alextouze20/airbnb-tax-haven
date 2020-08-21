@@ -9,8 +9,7 @@
 <%= link_to "Request citizenship",
  place_citizenships_path(@place),
   method: :post,
-  data: { confirm: "Request citizenship?"
-   }, class: "btn-primary request-citizenship-button won"  %>
+  class: "btn-primary request-citizenship-button won"  %>
 <%= link_to "Get out liar !", places_path, class: "btn-primary request-citizenship-button loose"   %>
 
 <script>
@@ -53,7 +52,6 @@
     // finally combine our output list into one string of HTML and put it on the page
     quizContainer.innerHTML = output.join('');
   }
-
   function showResults(){
 
     // gather answer containers from our quiz
@@ -135,25 +133,25 @@
       answers: {
         a: "I don't have a car",
         b: "A Twingo",
-        c: "A Lamborghini"
+        c: "Lamborghini"
       },
       correctAnswer: "c"
     },
     {
       question: "What's the best Website to save your money?",
       answers: {
-        a: "Evasion",
-        b: "Ebay",
+        a: "Ebay",
+        b: "Evasion",
         c: "AliBaba"
       },
-      correctAnswer: "a"
+      correctAnswer: "b"
     },
     {
-      question: "How many yatch do own?",
+      question: "How many yacht do you own ?",
       answers: {
-        a: "A what ?",
+        a: "A what?",
         b: "Does my bathtub count ?",
-        c: "I don't know ask my butler"
+        c: "I don't know ask my butler",
       },
       correctAnswer: "c"
     }
@@ -190,11 +188,11 @@ body{
 }
 h2{
   font-weight: 300;
-  margin: 0px;
+  margin-top: 80px;
   padding: 10px;
   font-size: 20px;
-  background-color: #444;
-  color: #fff;
+  background-color: #f6f4e6;
+  color: #52575d;
 }
 .question{
   font-size: 30px;
@@ -252,7 +250,7 @@ button:hover{
 }
 .loose{
   position: absolute;
-  bottom: 219px;
+  bottom: 150px;
   right: 581px;
 }
 .won{
@@ -267,6 +265,7 @@ button:hover{
 .footer{
   position: absolute;
   bottom: 0px;
+  background-color: #f6f4e6
 }
 
 </style>
