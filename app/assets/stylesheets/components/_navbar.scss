@@ -21,11 +21,11 @@
   color: #52575d;
 }
 .navbar-lewagon a{
-  color: white;
-  text-decoration: none
+  color: #52575d;
+  text-decoration: none;
 }
 .navbar-lewagon a:hover{
-  color: #41444b
+  color: #41444b;
 }
 .navbar-lewagon h1{
   color: white;
@@ -34,4 +34,8 @@
   height: 50px;
   width: 50px;
   border-radius: 50%;
+}
+
+.menu-text {
+  color: white !important;
 }
