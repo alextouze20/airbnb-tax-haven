@@ -14,3 +14,23 @@ font-size: 16px;
 .need-some-margin {
   margin-bottom: 20px;
 }
+
+select#query {
+    border: solid 5px white;
+    border-radius: 2px;
+}
+
+a.secondary-button {
+    color: lightgray;
+    border: solid 2px lightgray;
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+
+a.secondary-button:hover {
+    color: #424242;
+    border: solid 2px #424242;
+    transition-duration: 0.6s;
+}
