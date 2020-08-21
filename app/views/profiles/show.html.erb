@@ -43,7 +43,7 @@ background: #E9ECEF;
           <%= cl_image_tag place.thumbnail.key, height: 200, width: 300, crop: :fill if place.thumbnail.attached? %>
           <% end %>
           <div class="pl-3">
-            <h5><%= place.name %></h5>
+            <h4><%= place.name %></h4>
             <% if @user == current_user %>
               <p><%= link_to "Edit country", edit_place_path(place.id), class: "secondary-button-small" %><br/>
               <%= link_to "Delete country",
