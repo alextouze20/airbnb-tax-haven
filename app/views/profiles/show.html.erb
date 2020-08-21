@@ -29,7 +29,7 @@ background: #E9ECEF;
   </div>
       <div class="btn-edit-user-info" style="margin-top: 2%;">
         <% if policy(@user).edit? %>
-          <%= link_to "Edit User Info", edit_profile_path(current_user.id), class: "secondary-button" %>
+          <%= link_to "Edit your profile", edit_profile_path(current_user.id), class: "secondary-button" %>
         <% end %>
       </div>
 </div>
