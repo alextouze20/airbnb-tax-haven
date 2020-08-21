@@ -1,7 +1,7 @@
 
 <div class="row justify-content-center">
-<div class="container-citizenship;" style="margin-top: 10%;">
-<h1>Congrats! You are now an official citizen of <%= @citizenship.place.name %>!</h1>
+<div class="container-citizenship text-left" style="margin-top: 10%;">
+<h2>Congrats! You are now an official citizen of <%= @citizenship.place.name %>!</h2>
 <p>Here's your official ID card from this country. You may now transfer all your money abroad and your fortune will be tax free!</p>
 <div class="row justify-content-center">
   <div class="card-main" style="margin-top: 5%; margin-bottom: 5%;">
@@ -11,7 +11,7 @@
       <% if !current_user.photo.attached?  %>
             <%= image_tag "https://tse4.mm.bing.net/th?id=OIP.TneqgKQBUNi__W7XKshWlAHaHa&pid=Api", id: "id-pic", width: 150 %>
           <% else %>
-            <%= cl_image_tag  current_user.photo.key, class: "avatar dropdown-toggle", id: "id-pic", width: 150 %>
+            <%= cl_image_tag  current_user.photo.key, id: "id-pic", width: 150 %>
           <% end %>
     </div>
     <div class="card-right">
@@ -23,10 +23,13 @@
   <span id="id"><strong>ID:</strong> 78565989789790897866567</span>
 </div>
 </div>
-<p style="text-align: center;"><%= link_to "Your profile", profile_path(current_user.id) %> |
-<%= link_to "Home", places_path %></p>
+<p style="text-align: center;"><%= link_to "Your profile", profile_path(current_user.id), class: "secondary-button" %>
+<%= link_to "Home", places_path, class: "secondary-button" %></p>
 </div>
 </div>
+
+<% primary_color = ["rgb(191, 63, 63, 0.8)", "rgb(63, 191, 63, 0.8)", "rgb(63, 63, 191, 0.8)", "rgb(63, 191, 191, 0.8)", "rgb(127, 63, 191, 0.8)", "rgb(191, 127, 63, 0.8)"].sample %>
+<% secondary_color = ["rgb(38, 25, 12, 0.6)", "rgb(255, 255, 255, 0.6)"].sample %>
 
 <style>
 .card-main {
@@ -35,10 +38,10 @@
   height: 250px;
   padding: 15px;
   overflow: hidden;
-  background-image: linear-gradient(to bottom, rgba(0,0,153,0.6), rgba(37, 32, 30, 0.8)), url(http://texturelib.com/Textures/plastic/plastic_0017_01_preview.jpg);
+  background-image: linear-gradient(to bottom, <%= primary_color %>, <%= secondary_color %>), url(http://texturelib.com/Textures/plastic/plastic_0017_01_preview.jpg);
   border-radius: 5px;
-  border: solid 2px black;
   font-family: Poppins, sans-serif;
+    box-shadow: 0px 6px 26px -10px rgba(0,0,0,0.75);
 }
 
 .card-box {
@@ -72,7 +75,32 @@
 img#id-pic {
     width: 120px !important;
     height: auto !important;
-    opacity: 0.6;
 }
+
+a.secondary-button {
+    color: lightgray;
+    border: solid 2px lightgray;
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+
+a.secondary-button:hover {
+    color: #424242;
+    border: solid 2px #424242;
+    transition-duration: 0.6s;
+}
+
+body {
+  background: #E9ECEF;
+}
+
+.container-citizenship {
+  background-color: white;
+  padding: 5%;
+  border-radius: 5px;
+}
+
 
 </style>

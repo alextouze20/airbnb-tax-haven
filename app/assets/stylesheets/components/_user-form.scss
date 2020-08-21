@@ -24,10 +24,14 @@
 }
 input{
   background-color: #FDDB3A;
-  border-radius: 10px;
+  border-radius: 5px;
   text-decoration: none;
-  padding: 10px;
   margin: 10px;
+  border: none;
+  height: 45px;
+  width: 100%;
+  height: 45px;
+  width: 100%;
   color: #52575d;
   &:hover{
     text-decoration: none;
@@ -38,3 +42,12 @@ input{
   opacity: 0;
 }
 
+.form-control-file {
+  background: none;
+}
+
+.form-container {
+  background-color: white !important;
+  box-shadow: none !important;
+  font-family: Poppins;
+}

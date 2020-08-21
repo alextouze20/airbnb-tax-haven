@@ -1,15 +1,26 @@
-<%= simple_form_for(@place, html:{class: "row mt-5"}) do |f|%>
-  <%= f.input :name, wrapper_html: {class: "col-6"} %>
-  <%= f.input :tax , wrapper_html: {class: "col-6"}%>
-  <%= f.input :control, wrapper_html: {class: "col-6"}, :collection => ['None','Low','Strict']%>
-  <%= f.input :reputation,wrapper_html: {class: "col-6"}, :collection => ['Bad','Good','Very Good'] %>
-  <%= f.input :regime ,wrapper_html: {class: "col-6"}, :collection => ['Democraty','Monarchy','Dictature']%>
-  <%= f.input :position ,wrapper_html: {class: "col-6"}%>
-  <%= f.input :continent,wrapper_html: {class: "col-6"} %>
-  <%= f.input :min_income,wrapper_html: {class: "col-6"} %>
-  <%= f.input :description,wrapper_html: {class: "col-6"} %>
-  <%= f.input :thumbnail, as: :file,wrapper_html: {class: "col-6"} %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true }, wrapper_html: {class: "col-6"}%>
-  <%= f.submit  %>
-<% end %>
-<%= link_to 'Go Back', profile_path(current_user) %>
+<style>
+body {
+    background-color: #E9ECEF;
+}
+</style>
+
+<div class="d-flex justify-content-center">
+  <div class="form-container">
+    <%= simple_form_for(@place, html:{class: "row mt-5"}) do |f|%>
+      <%= f.input :name, wrapper_html: {class: "col-6"} %>
+      <%= f.input :tax , wrapper_html: {class: "col-6"}%>
+      <%= f.input :control, wrapper_html: {class: "col-6"}, :collection => ['None','Low','Strict']%>
+      <%= f.input :reputation,wrapper_html: {class: "col-6"}, :collection => ['Bad','Good','Very Good'] %>
+      <%= f.input :regime ,wrapper_html: {class: "col-6"}, :collection => ['Democraty','Monarchy','Dictature']%>
+      <%= f.input :position ,wrapper_html: {class: "col-6"}%>
+      <%= f.input :continent,wrapper_html: {class: "col-6"} %>
+      <%= f.input :min_income,wrapper_html: {class: "col-6"} %>
+      <%= f.input :description,wrapper_html: {class: "col-6"} %>
+      <%= f.input :thumbnail, as: :file,wrapper_html: {class: "col-6"} %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true }, wrapper_html: {class: "col-6"}%>
+      <%= f.submit  %>
+    <% end %>
+    <%= link_to 'Go Back', profile_path(current_user), class: "secondary-button" %>
+  </div>
+</div>
+<% "Style improoved" %>

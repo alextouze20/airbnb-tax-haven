@@ -24,6 +24,6 @@ class CitizenshipsController < ApplicationController
    citizenship = Citizenship.find(params[:id])
    authorize citizenship
    Citizenship.destroy(citizenship.id)
-   redirect_to user_path(current_user.id)
+   redirect_to profile_path(current_user.id)
   end
 end

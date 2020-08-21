@@ -11,7 +11,7 @@
             raw('<option value="" disabled selected>Now, how rich are you, exactly?</option><option value="1">My net worth is... hmmm... underwhelming?</option><option value="2">I\'m a proud member of the Middle Class</option><option value="3">I\'m a Millionaire</option><option value="4">I\'m a Multi-Millionaire</option><option value="5">I\'m a Bilionnaire</option><option value="6">I\'m a Multi-Billionaire</option><option value="7">I am Richer than God</option>')
         %>
           <%= submit_tag "Search", class: "btn btn-primary col-3 searchbtn mx-4" %>
-        <%= link_to "Add a new place", new_place_path%>
+        <%= link_to "Add a country", new_place_path%>
       </div>
     <% end %>
     </div>
@@ -118,6 +118,10 @@ li.nav-item.dropdown > a {
 .results > h2 {
     text-align: center;
     margin-bottom: 2%;
+}
+
+body {
+  background-color: white !important;
 }
 
 </style>

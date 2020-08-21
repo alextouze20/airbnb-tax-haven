@@ -1,3 +1,10 @@
+<style>
+
+body {
+background: #E9ECEF;
+}
+</style>
+
 <div class="container-user-info">
   <div class="img-us">
   <%= cl_image_tag @user.photo.key, class: "user-img", height: 100, width: 100, crop: :fill if @user.photo.attached? %>
@@ -20,28 +27,29 @@
     email : <%= @user.email %>
     </div>
   </div>
-      <div class="btn-edit-user-info">
+      <div class="btn-edit-user-info" style="margin-top: 2%;">
         <% if policy(@user).edit? %>
-          <%= link_to "Edit User Info", edit_profile_path(current_user.id), class: "btn" %>
+          <%= link_to "Edit your profile", edit_profile_path(current_user.id), class: "secondary-button" %>
         <% end %>
       </div>
 </div>
 
 <div class="container-place-citizen">
   <div class="user-places">
-    <h1 class="text-left mb-5">Places created by user</h1>
+    <h2 class="text-left mb-5">Your countries</h2>
       <% @user.places.each do |place| %>
         <div class= "card-user-places">
+          <%= link_to place_path(place.id) do %>
           <%= cl_image_tag place.thumbnail.key, height: 200, width: 300, crop: :fill if place.thumbnail.attached? %>
-
+          <% end %>
           <div class="pl-3">
-            <p><%= link_to place.name, place_path(place.id) %></p>
+            <h4><%= place.name %></h4>
             <% if @user == current_user %>
-              <p><%= link_to "Edit this place", edit_place_path(place.id) %></p>
-              <p><%= link_to "Delete this place 🗑️",
+              <p><%= link_to "Edit country", edit_place_path(place.id), class: "secondary-button-small" %><br/>
+              <%= link_to "Delete country",
                 place_path(place.id),
                 method: :delete,
-                data: { confirm: "Are you sure?" } %></p>
+                data: { confirm: "Delete this country?" }, class: "secondary-button-small" %></p>
             <% end %>
           </div>
         </div>
@@ -49,26 +57,146 @@
 
     <div class="pt-5">
       <% if @user == current_user %>
-      <p><%= link_to "Add a new place", new_place_path, class: "btn"%></p>
+      <p><%= link_to "Add a new place", new_place_path, class: "secondary-button"%></p>
     <% end %>
     </div>
   </div>
 
 
   <div class="user-citizenships">
-    <h2 class="text-left mb-5">Citizenships of user</h2>
-    <ul>
+    <h2 class="text-left mb-5">Your citizenships</h2>
       <% @user.citizenships.each do |citizenship| %>
-        <li><%= citizenship.user.name %> - <%= citizenship.place.name %>
-      <%= link_to "🗑️",
+
+<% primary_color = ["rgb(191, 63, 63, 0.8)", "rgb(63, 191, 63, 0.8)", "rgb(63, 63, 191, 0.8)", "rgb(63, 191, 191, 0.8)", "rgb(127, 63, 191, 0.8)", "rgb(191, 127, 63, 0.8)"].sample %>
+<% secondary_color = ["rgb(38, 25, 12, 0.6)", "rgb(255, 255, 255, 0.6)"].sample %>
+
+<div class="row justify-content-center">
+  <div class="card-main" style="margin-top: 2%; margin-bottom: 2%; background-image: linear-gradient(to bottom, <%= primary_color %>, <%= secondary_color %>), url(http://texturelib.com/Textures/plastic/plastic_0017_01_preview.jpg);">
+  <span id="title">Republic of <%= citizenship.place.name %></span>
+  <div class="card-box">
+    <div class="card-left">
+      <% if !current_user.photo.attached?  %>
+            <%= image_tag "https://tse4.mm.bing.net/th?id=OIP.TneqgKQBUNi__W7XKshWlAHaHa&pid=Api", id: "id-pic", width: 150 %>
+          <% else %>
+            <%= cl_image_tag  current_user.photo.key, id: "id-pic", width: 150 %>
+          <% end %>
+    </div>
+    <div class="card-right">
+      <p><strong>Full name:</strong> <%= citizenship.user.name %></p>
+      <p><strong>Date of birth:</strong> 20/12/1993</p>
+      <p><strong>Status:</strong> Resident</p>
+    </div>
+  </div>
+  <span id="id"><strong>ID:</strong> 78565989789790897866567</span>
+  <%= link_to "Withdraw",
           place_citizenship_path(citizenship.place,citizenship),
           method: :delete,
-          data: { confirm: "Are you sure?" } %>
-        </li>
+          data: { confirm: "Withdraw this citizenship?" }, class: "withdraw-button" %>
+</div>
+</div>
       <% end %>
-    </ul>
-
-    <%= link_to 'Go back', places_path, class: "btn" %>
   </div>
 </div>
 
+
+<style>
+.card-main {
+  color: white;
+  width: 420px;
+  height: 250px;
+  padding: 15px;
+  overflow: hidden;
+  border-radius: 5px;
+  font-family: Poppins, sans-serif;
+  box-shadow: 0px 6px 26px -10px rgba(0,0,0,0.75);
+}
+
+.card-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.card-left {
+  margin-right: 25px;
+}
+
+#ic-pic {
+  opacity: 0.6;
+  filter: grayscale(80%);
+  border: solid 2px black;
+}
+
+.card-right {
+  color: white;
+  opacity: 0.7;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#title {
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+img#id-pic {
+    width: 120px !important;
+    height: auto !important;
+}
+
+a.secondary-button {
+    color: lightgray;
+    border: solid 2px lightgray;
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+
+a.secondary-button:hover {
+    color: #424242;
+    border: solid 2px #424242;
+    transition-duration: 0.6s;
+}
+
+a.secondary-button-small {
+    color: lightgray;
+    font-size: 0.8em;
+}
+
+
+a.secondary-button-small:hover {
+    color: #424242;
+    transition-duration: 0.6s;
+}
+
+a.withdraw-button {
+    color: white;
+    border: solid 2px white;
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+    position: relative;
+    bottom: -45px;
+    right: -55px;
+    opacity: 0.6;
+}
+
+
+a.withdraw-button:hover {
+    opacity: 1;
+    transition-duration: 0.6s;
+}
+
+body {
+  background: #E9ECEF;
+}
+
+.container-citizenship {
+  background-color: white;
+  padding: 5%;
+  border-radius: 5px;
+}
+
+
+</style>
