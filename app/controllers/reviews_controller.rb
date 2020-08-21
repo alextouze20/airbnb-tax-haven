@@ -3,13 +3,25 @@ class ReviewsController < ApplicationController
     review = Review.new
     authorize review
   end
+
   def create
     review = Review.new(strong_review)
     review.user = current_user
     review.place = Place.find(params[:place_id])
     authorize review
-    review.save
-    redirect_to place_path(params[:place_id])
+    if review.save
+      redirect_to place_path(params[:place_id])
+    else
+      redirect_to place_path(
+        params[:place_id],
+        commit: "Create Review",
+        review: {
+          content: params[:review][:content],
+          rating: params[:review][:rating]
+        }
+      )
+
+    end
   end
 
   def destroy
