@@ -88,9 +88,11 @@
     // show number of correct answers out of total
     resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
     if(numCorrect === 3){
+      loose.classList.remove("result-btn")
       won.classList.add("result-btn")
     }
     if(numCorrect !== 3){
+      won.classList.remove("result-btn")
       loose.classList.add("result-btn")
     }
   }
