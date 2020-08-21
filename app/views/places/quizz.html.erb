@@ -13,7 +13,7 @@
 <%= link_to "Get out liar !", places_path, class: "btn-primary request-citizenship-button loose"   %>
 
 <script>
-function(){
+(function(){
   // Functions
   function buildQuiz(){
     // variable to store the HTML output
@@ -134,25 +134,25 @@ function(){
       answers: {
         a: "I don't have a car",
         b: "A Twingo",
-        c: "A Lamborghini"
+        c: "Lamborghini"
       },
       correctAnswer: "c"
     },
     {
       question: "What's the best Website to save your money?",
       answers: {
-        a: "Evasion",
-        b: "Ebay",
+        a: "Ebay",
+        b: "Evasion",
         c: "AliBaba"
       },
-      correctAnswer: "a"
+      correctAnswer: "b"
     },
     {
-      question: "How many yacht do you own?",
+      question: "How many yacht do you own ?",
       answers: {
-        a: "A what ?",
+        a: "A what?",
         b: "Does my bathtub count ?",
-        c: "I don't know ask my butler"
+        c: "I don't know ask my butler",
       },
       correctAnswer: "c"
     }
@@ -174,7 +174,7 @@ function(){
   submitButton.addEventListener('click', showResults);
   previousButton.addEventListener("click", showPreviousSlide);
   nextButton.addEventListener("click", showNextSlide);
-();
+})();
 </script>
 <style>
   @import url(https://fonts.googleapis.com/css?family=Work+Sans:300,600);
