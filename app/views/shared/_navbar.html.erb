@@ -11,8 +11,8 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
-          <%= link_to "Home", places_path %> <span style="color: white;">|</span>
-          <%= link_to current_user.name, profile_path(current_user.id) %>
+          <%= link_to "Home", places_path, class: "menu-text" %> <span style="color: white;">|</span>
+          <%= link_to current_user.name, profile_path(current_user.id), class: "menu-text" %>
           <% if !current_user.photo.attached?  %>
             <%= image_tag "https://tse4.mm.bing.net/th?id=OIP.TneqgKQBUNi__W7XKshWlAHaHa&pid=Api", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
