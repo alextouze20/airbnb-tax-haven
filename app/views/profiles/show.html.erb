@@ -88,11 +88,13 @@ background: #E9ECEF;
     </div>
   </div>
   <span id="id"><strong>ID:</strong> 78565989789790897866567</span>
-  <%= link_to "Withdraw",
-          place_citizenship_path(citizenship.place,citizenship),
-          method: :delete,
-          data: { confirm: "Withdraw this citizenship?" }, class: "withdraw-button" %>
-</div>
+  <% if policy(@user).destroy? %>
+    <%= link_to "Withdraw",
+            place_citizenship_path(citizenship.place,citizenship),
+            method: :delete,
+            data: { confirm: "Withdraw this citizenship?" }, class: "withdraw-button" %>
+  </div>
+  <% end %>
 </div>
       <% end %>
   </div>

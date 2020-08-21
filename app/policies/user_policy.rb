@@ -12,7 +12,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record == user.id
+    record == user
   end
 
   def edit?
