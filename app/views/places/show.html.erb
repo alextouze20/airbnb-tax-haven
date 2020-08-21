@@ -53,7 +53,7 @@
         <% if !current_user.photo.attached?  %>
           <%= image_tag "https://tse4.mm.bing.net/th?id=OIP.TneqgKQBUNi__W7XKshWlAHaHa&pid=Api", class: " dropdown-toggle avatar-comment", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% else %>
-          <%= cl_image_tag  current_user.photo.key, class: " dropdown-toggle avatar-comment", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= cl_image_tag  review.user.photo.key, class: " dropdown-toggle avatar-comment", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
         <div class="content-review">
           <strong><%= review.user.name %></strong><br>
