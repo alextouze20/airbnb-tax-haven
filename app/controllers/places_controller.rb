@@ -24,7 +24,12 @@ class PlacesController < ApplicationController
   end
 
   def show
-    @review = Review.new()
+    @review = Review.new
+    if params[:review].present?
+      flash.alert = "Veuillez remplir tout les champs pour laisser une Review"
+      @review.rating = params[:review][:rating] if params[:review][:rating] != ""
+      @review.content = params[:review][:content] if params[:review][:content] != ""
+    end
     @place = Place.find(params[:id])
     authorize @place
   end
@@ -92,5 +97,9 @@ class PlacesController < ApplicationController
                                   :description,
                                   :thumbnail,
                                   photos: [])
+  end
+
+  def strong_review
+    params.require(:review).permit(:content, :rating)
   end
 end

@@ -4,6 +4,7 @@
 .show-header
  {
   margin-top: 70px;
+  font-size: 50px;
  }
 
 .container-user-show {
@@ -21,7 +22,7 @@
 }
 
 .container-big {
-  margin-left: 20%;
+  margin-left: 34%;
   margin-right: 20%;
 
 
@@ -93,7 +94,7 @@ margin-bottom: 0px;
 .description-place {
   padding-top: 30px;
   padding-bottom: 30px;
-  width: 876px;
+  width: 700px;
   position: relative;
   left: -236;
   text-align: left;
@@ -101,7 +102,8 @@ margin-bottom: 0px;
 }
 
 .info-general {
-  position: relative;
+  // position: relative;
+  display: flex;
   padding-bottom: 80px;
   border-bottom: gray 1px solid;
   p {
@@ -109,11 +111,14 @@ margin-bottom: 0px;
   }
 }
 
+.margin-needed {
+  margin-top: 40px;
+}
+
 .request-citizenship-box {
 
-  position: fixed;
-  right: 30px;
-  top: 50%;
+  position: sticky;
+  top: 80px;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -123,6 +128,8 @@ margin-bottom: 0px;
   border-radius: 12px;
   padding: 24px;
   box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12);
+  width: max-content;
+  margin-left: 26px;
   .min-income-header {
     font-size: 18px;
   }
@@ -148,8 +155,10 @@ margin-bottom: 0px;
 }
 
 .card-review {
+  margin-top: 20px;
   overflow: hidden;
   height: 120px;
+  width: 700px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -176,4 +185,12 @@ margin-bottom: 0px;
 }
 .review-input{
   width: 400px;
+}
+
+.avatar-comment {
+  height: 80px !important;
+  width: 80px !important;
+  border-radius: 50% !important;
+  margin-right: 20px;
+  margin-left: 20px;
 }
